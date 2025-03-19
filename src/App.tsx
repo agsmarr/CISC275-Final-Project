@@ -49,6 +49,7 @@ function App() {
       <div>
         Amanda Smarr
         Saieda Ali Zada
+        Yaqing Jiang
       </div>
     </div>
   );
