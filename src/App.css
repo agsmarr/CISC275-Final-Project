@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+body {
+  background-color: white  ;
+}
 
 .App-logo {
   height: 40vmin;
@@ -22,6 +25,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .App-link {

@@ -1,0 +1,7 @@
+.Buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+#Basic {
+    height: 20%;
+}
