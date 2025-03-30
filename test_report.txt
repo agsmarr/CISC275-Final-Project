@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (42 ms)
+  ✕ renders learn react link (44 ms)
 
   ● renders learn react link
 
@@ -37,20 +37,42 @@ FAIL src/App.test.tsx
             [36m<div[39m
               [33mclass[39m=[32m"Buttons"[39m
             [36m>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-primary"[39m
-                [33mid[39m=[32m"Basic"[39m
-                [33mtype[39m=[32m"button"[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"quiz-container"[39m
               [36m>[39m
-                [0mBasic Questions Quiz[0m
-              [36m</button>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-primary"[39m
-                [33mid[39m=[32m"Detailed"[39m
-                [33mtype[39m=[32m"button"[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mid[39m=[32m"Basic"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mBasic Questions Quiz[0m
+                [36m</button>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"quiz-description"[39m
+                [36m>[39m
+                  [36m<p>[39m
+                    [0mNavigate to the 'Basic Questions' Page to answer some basic questions about yourself to determine the career fit for you![0m
+                  [36m</p>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"quiz-container"[39m
               [36m>[39m
-                [0mDetailed Questions Quiz[0m
-              [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mid[39m=[32m"Detailed"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mDetailed Questions Quiz[0m
+                [36m</button>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"quiz-description"[39m
+                [36m>[39m
+                  [36m<p>[39m
+                    [0mNavigate to the 'Detailed Questions' Page to answer some basic questions about yourself to determine the career fit for you![0m
+                  [36m</p>[39m
+                [36m</div>[39m
+              [36m</div>[39m
             [36m</div>[39m
           [36m</div>[39m
           [36m<form[39m
@@ -113,7 +135,7 @@ All files            |   31.81 |    16.66 |   33.33 |   31.81 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.654 s
+Time:        2.622 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
