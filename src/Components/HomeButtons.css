@@ -42,6 +42,21 @@ p {
 #Detailed:hover {
 background-color: gray;}
 
+#CareerAssessment {
+    background-color: #282c34;
+    border-color: black;
+    height: 180px;
+    width: 350px;
+    font-size: 35px;
+    box-shadow: 8px 8px black;
+    border-radius: 20px;
+    font-weight: 900;
+}  
+#CareerAssessment:hover {
+    background-color: gray;
+}
+
+
 .quiz-description {
     text-align: left;
     max-width: 350px; /* Matches button width */
