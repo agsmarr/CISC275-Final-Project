@@ -3,139 +3,50 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (44 ms)
+  ● Test suite failed to run
 
-  ● renders learn react link
+    Cannot find module 'react-router-dom' from 'src/Components/HomeButtons.tsx'
 
-    TestingLibraryElementError: Unable to find an element with the text: /learn react/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+    Require stack:
+      src/Components/HomeButtons.tsx
+      src/App.tsx
+      src/App.test.tsx
 
-    Ignored nodes: comments, script, style
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div[39m
-          [33mclass[39m=[32m"App"[39m
-        [36m>[39m
-          [36m<header[39m
-            [33mclass[39m=[32m"App-header"[39m
-          [36m>[39m
-            [36m<img[39m
-              [33malt[39m=[32m"logo"[39m
-              [33mclass[39m=[32m"App-logo"[39m
-              [33msrc[39m=[32m"logo.svg"[39m
-            [36m/>[39m
-            [36m<h1>[39m
-              [0mWelcome to the Career Helpi![0m
-            [36m</h1>[39m
-          [36m</header>[39m
-          [36m<div>[39m
-            [36m<h1>[39m
-              [0mChoose a quiz![0m
-            [36m</h1>[39m
-            [36m<p>[39m
-              [0mChoose between a basic or detailed quiz to discover what type of career is best for you![0m
-            [36m</p>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"Buttons"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"quiz-container"[39m
-              [36m>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mid[39m=[32m"Basic"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mBasic Questions Quiz[0m
-                [36m</button>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"quiz-description"[39m
-                [36m>[39m
-                  [36m<p>[39m
-                    [0mNavigate to the 'Basic Questions' Page to answer some basic questions about yourself to determine the career fit for you![0m
-                  [36m</p>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"quiz-container"[39m
-              [36m>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mid[39m=[32m"Detailed"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mDetailed Questions Quiz[0m
-                [36m</button>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"quiz-description"[39m
-                [36m>[39m
-                  [36m<p>[39m
-                    [0mNavigate to the 'Detailed Questions' Page to answer some basic questions about yourself to determine the career fit for you![0m
-                  [36m</p>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-          [36m</div>[39m
-          [36m<form[39m
-            [33mclass[39m=[32m""[39m
-          [36m>[39m
-            [36m<label[39m
-              [33mclass[39m=[32m"form-label"[39m
-            [36m>[39m
-              [0mAPI Key:[0m
-            [36m</label>[39m
-            [36m<input[39m
-              [33mclass[39m=[32m"form-control"[39m
-              [33mplaceholder[39m=[32m"Insert API Key Here"[39m
-              [33mtype[39m=[32m"password"[39m
-            [36m/>[39m
-            [36m<br />[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mSubmit[0m
-            [36m</button>[39m
-          [36m</form>[39m
-          [36m<div>[39m
-            [0mAmanda Smarr Saieda Ali Zada Yaqing Jiang[0m
-          [36m</div>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
+      1 | import {Button} from 'react-bootstrap';
+      2 | import './HomeButtons.css';
+    > 3 | import { Link } from 'react-router-dom';
+        | ^
+      4 | export function HomeButtons() {
+      5 |     return (<div>
+      6 |         <h1>Choose a quiz!</h1>
 
-       5 | test('renders learn react link', () => {
-       6 |   render(<App />);
-    >  7 |   const linkElement = screen.getByText(/learn react/i);
-         |                              ^
-       8 |   expect(linkElement).toBeInTheDocument();
-       9 | });
-      10 |
-
-      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
-      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
-      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
-      at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
-      at Object.<anonymous> (src/App.test.tsx:7:30)
+      at Resolver.resolveModule (node_modules/jest-resolve/build/resolver.js:324:11)
+      at Object.<anonymous> (src/Components/HomeButtons.tsx:3:1)
+      at Object.<anonymous> (src/App.tsx:5:1)
+      at Object.<anonymous> (src/App.test.tsx:3:1)
       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
       at runJest (node_modules/@jest/core/build/runJest.js:404:19)
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
----------------------|---------|----------|---------|---------|-------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------|---------|----------|---------|---------|-------------------
-All files            |   31.81 |    16.66 |   33.33 |   31.81 |                   
- src                 |   28.57 |    16.66 |      20 |   28.57 |                   
-  App.tsx            |      60 |       50 |   33.33 |      60 | 12,20-26          
-  index.tsx          |       0 |      100 |     100 |       0 | 6-18              
-  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
- src/Components      |     100 |      100 |     100 |     100 |                   
-  HomeButtons.tsx    |     100 |      100 |     100 |     100 |                   
----------------------|---------|----------|---------|---------|-------------------
+---------------------------|---------|----------|---------|---------|-------------------
+File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------------|---------|----------|---------|---------|-------------------
+All files                  |       0 |        0 |       0 |       0 |                   
+ src                       |       0 |        0 |       0 |       0 |                   
+  App.tsx                  |       0 |        0 |       0 |       0 | 11-31             
+  index.tsx                |       0 |      100 |     100 |       0 | 6-18              
+  reportWebVitals.ts       |       0 |        0 |       0 |       0 | 3-10              
+ src/Components            |       0 |      100 |       0 |       0 |                   
+  BasicQuizPage.tsx        |       0 |      100 |       0 |       0 | 4-5               
+  CareerAssessmentPage.tsx |       0 |      100 |       0 |       0 | 4-5               
+  DetailedQuizPage.tsx     |       0 |      100 |       0 |       0 | 4-5               
+  HomeButtons.tsx          |       0 |      100 |       0 |       0 | 5                 
+---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
+Tests:       0 total
 Snapshots:   0 total
-Time:        2.622 s
+Time:        3.171 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
