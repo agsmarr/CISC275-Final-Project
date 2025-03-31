@@ -3,7 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import {HomeButtons} from "./Components/HomeButtons"
-
+import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
+import BasicQuizPage from "./Components/BasicQuizPage";
+import DetailedQuizPage from "./Components/DetailedQuizPage";
+import CareerAssessmentPage from "./Components/CareerAssessmentPage";
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -26,12 +29,19 @@ function App() {
     setKey(event.target.value);
   }
   return (
+    <Router>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Welcome to the Career Helpi!</h1>
       </header>
-      <HomeButtons></HomeButtons>
+        <Routes>
+          <Route path="/" element={<HomeButtons />} />
+          <Route path="/basic-quiz" element={<BasicQuizPage />} />
+          <Route path="/detailed-quiz" element={<DetailedQuizPage />} />
+          <Route path="/career-assessment" element={<CareerAssessmentPage />} />
+        </Routes>
+        
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
@@ -44,6 +54,7 @@ function App() {
         Yaqing Jiang
       </div>
     </div>
+    </Router>
   );
 }
 
