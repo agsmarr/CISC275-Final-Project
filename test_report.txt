@@ -17,8 +17,8 @@ FAIL src/App.test.tsx
     > 3 | import { Link } from 'react-router-dom';
         | ^
       4 | export function HomeButtons() {
-      5 |     return (<div>
-      6 |         <h1>Choose a quiz!</h1>
+      5 |     /*testing*/ 
+      6 |     return (<div>
 
       at Resolver.resolveModule (node_modules/jest-resolve/build/resolver.js:324:11)
       at Object.<anonymous> (src/Components/HomeButtons.tsx:3:1)
@@ -41,12 +41,12 @@ All files                  |       0 |        0 |       0 |       0 |
   BasicQuizPage.tsx        |       0 |      100 |       0 |       0 | 4-5               
   CareerAssessmentPage.tsx |       0 |      100 |       0 |       0 | 4-5               
   DetailedQuizPage.tsx     |       0 |      100 |       0 |       0 | 4-5               
-  HomeButtons.tsx          |       0 |      100 |       0 |       0 | 5                 
+  HomeButtons.tsx          |       0 |      100 |       0 |       0 | 6                 
 ---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.171 s
+Time:        2.983 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
