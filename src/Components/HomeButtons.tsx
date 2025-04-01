@@ -1,6 +1,7 @@
 import {Button} from 'react-bootstrap';
 import './HomeButtons.css';
 export function HomeButtons() {
+    /*testing*/ 
     return (<div>
         <h1>Choose a quiz!</h1>
         <p>Choose between a basic or detailed quiz to discover what type of career is best for you!
