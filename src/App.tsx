@@ -6,7 +6,6 @@ import {HomeButtons} from "./Components/HomeButtons"
 import { HashRouter as Router, Route, Routes  } from 'react-router-dom';
 import BasicQuizPage from "./Components/BasicQuizPage";
 import DetailedQuizPage from "./Components/DetailedQuizPage";
-import CareerAssessmentPage from "./Components/CareerAssessmentPage";
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -39,7 +38,6 @@ function App() {
           <Route path="/" element={<HomeButtons />} />
           <Route path="/basic-quiz" element={<BasicQuizPage />} />
           <Route path="/detailed-quiz" element={<DetailedQuizPage />} />
-          <Route path="/career-assessment" element={<CareerAssessmentPage />} />
         </Routes>
         
       <Form>
