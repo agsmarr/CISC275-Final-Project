@@ -1,6 +1,5 @@
 import {Button} from 'react-bootstrap';
 import './HomeButtons.css';
-//import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 export function HomeButtons() {
 const navigate = useNavigate();
@@ -30,11 +29,7 @@ const navigate = useNavigate();
                         </p>
                 </div>
                 </div>
-                <div className="quiz-container">
-                    {/*<Link to="/career-assessment">*/}
-                    <Button id="CareerAssessment" onClick={()=> {navigate("/career-assessment")}}>Career Assessment</Button>
-        
-                </div>
+
             </div>
     </div>)
 }
