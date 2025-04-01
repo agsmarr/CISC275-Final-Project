@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import {HomeButtons} from "./Components/HomeButtons"
-import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes  } from 'react-router-dom';
 import BasicQuizPage from "./Components/BasicQuizPage";
 import DetailedQuizPage from "./Components/DetailedQuizPage";
 import CareerAssessmentPage from "./Components/CareerAssessmentPage";
