@@ -8,26 +8,29 @@
 
 h1 {
     margin-top: 3%;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 900;
 }
 p {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
 }
 #Basic {
-    background-color: #282c34;
-    border-color: black;
-    box-shadow: 8px 8px black;
+    background: linear-gradient(#9fbcf6, #e5c0f4);
+    border-color: #9fbcf6;
+    box-shadow: 8px 8px 20px #708dc7;
     border-radius: 20px;
     height: 180px;
     width: 350px;
     font-size: 35px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 900;
+    color: #fcf8f5;
+
 }
 #Basic:hover {
-    background-color: gray;}
+    background-color: #87a4de;
+}
 #Detailed {
     background-color: #282c34;
     border-color: black;
@@ -37,6 +40,10 @@ p {
     box-shadow: 8px 8px black;
     border-radius: 20px;
     font-weight: 900;
+    color: #fcf8f5;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
 #Detailed:hover {
 background-color: gray;}
