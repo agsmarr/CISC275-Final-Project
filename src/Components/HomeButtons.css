@@ -60,11 +60,15 @@ p {
 }
 .quiz-description {
     text-align: left;
-    max-width: 350px; /* Matches button width */
+    max-width: 350px;
     padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    margin: 0; /* Remove the previous margin */
+    background-color: #ce9be2 ;
+    border-radius: 10px;
+    margin-top: 20px; /* Remove the previous margin */
+    color: #f8f9fa;
+    text-align: center;
+    box-shadow: 8px 8px 20px #9c52b9;
+    font-weight: bold;
 }
 
 .quiz-container {

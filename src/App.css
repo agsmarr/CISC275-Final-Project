@@ -42,7 +42,7 @@ body {
 .App-header {
   background: radial-gradient(circle, #d2a1e6, #9fbcf6 70%);
   color: #fcf8f5;
-  padding:2%;
+  padding:1%;
 }
 .App-footer {
   background: radial-gradient(circle, #d2a1e6, #9fbcf6 70%);
@@ -54,14 +54,17 @@ body {
 }
 .Submit-Button {
   background-color: #fcf8f5;
-  color: #557bc7;
+  color: #688cd5;
   height: 50px;
-  width: 100px;
+  width: 150px;
   font-size: 25px;
+  border-color: #ddd8d4;
+  font-weight: bold;
 }
 .Submit-Button:hover {
   background-color: #ddd8d4;
-  color: #557bc7;
+  border-color: #ddd8d4;
+  color: #688cd5;
 }
 @keyframes App-logo-spin {
   from {

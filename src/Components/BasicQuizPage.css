@@ -1,0 +1,12 @@
+header {
+    background: radial-gradient(circle, #d2a1e6, #9fbcf6 70%);
+}
+#home-button {
+    background: transparent;
+    border-color: transparent;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+#home-button:hover {
+    text-decoration: underline;
+}
