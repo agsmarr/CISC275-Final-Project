@@ -40,11 +40,29 @@ body {
   color: #fcf8f5;
 }
 .App-header {
-  background: radial-gradient(circle, #d2a1e6, #9fbcf6 80%);
+  background: radial-gradient(circle, #d2a1e6, #9fbcf6 70%);
   color: #fcf8f5;
   padding:2%;
 }
-
+.App-footer {
+  background: radial-gradient(circle, #d2a1e6, #9fbcf6 70%);
+  padding: 1%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #fcf8f5;
+  font-size: 30px;
+  font-weight: bold;
+}
+.Submit-Button {
+  background-color: #fcf8f5;
+  color: #557bc7;
+  height: 50px;
+  width: 100px;
+  font-size: 25px;
+}
+.Submit-Button:hover {
+  background-color: #ddd8d4;
+  color: #557bc7;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

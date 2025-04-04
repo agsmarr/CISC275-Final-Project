@@ -44,13 +44,13 @@ function App() {
           <Route path="/basic-quiz" element={<BasicQuizPage />} />
           <Route path="/detailed-quiz" element={<DetailedQuizPage />} />
         </Routes>
-        
-      <Form>
+        <footer className = "App-footer"><Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
+      </Form></footer>
+      
     </div>
     </Router>
   );
