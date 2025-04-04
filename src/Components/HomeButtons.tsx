@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 export function HomeButtons() {
 const navigate = useNavigate();
         return (<div>
-            <h1>Choose a quiz!</h1>
-            <p>Choose between a basic or detailed quiz to discover what type of career is best for you!
+            <h1 id = "bottom-h1">Choose a quiz!</h1>
+            <p id = "bottom-p">Choose between a basic or detailed quiz to discover what type of career is best for you!
             </p>
             <div className = "Buttons">
                 <div className="quiz-container">

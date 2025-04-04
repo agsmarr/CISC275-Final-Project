@@ -17,7 +17,8 @@ body {
 }
 #names {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 100;
+  font-weight: bold;
+  font-size: 20px;
 }
 #left-image {
   height: 200px;
@@ -39,7 +40,7 @@ body {
   color: #fcf8f5;
 }
 .App-header {
-  background: radial-gradient(circle, #e5c0f4, #9fbcf6 50%);
+  background: radial-gradient(circle, #d2a1e6, #9fbcf6 80%);
   color: #fcf8f5;
   padding:2%;
 }

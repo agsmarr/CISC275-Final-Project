@@ -16,9 +16,9 @@ p {
     font-size: 20px;
 }
 #Basic {
-    background: linear-gradient(#9fbcf6, #e5c0f4);
+    background-color: #9fbcf6;
     border-color: #9fbcf6;
-    box-shadow: 8px 8px 20px #708dc7;
+    box-shadow: 8px 8px 20px #557bc7;
     border-radius: 20px;
     height: 180px;
     width: 350px;
@@ -32,37 +32,32 @@ p {
     background-color: #87a4de;
 }
 #Detailed {
-    background-color: #282c34;
-    border-color: black;
+    border-color: #9fbcf6;
     height: 180px;
     width: 350px;
     font-size: 35px;
-    box-shadow: 8px 8px black;
     border-radius: 20px;
     font-weight: 900;
     color: #fcf8f5;
-
+    background-color: #9fbcf6;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 8px 8px 20px #557bc7;
 
+}
+#bottom-h1 {
+    color: #c48dda;
+    font-weight: bold;
+    font-size: 40px;
+}
+#bottom-p {
+    color: #7698dc;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
 }
 #Detailed:hover {
-background-color: gray;}
-
-#CareerAssessment {
-    background-color: #282c34;
-    border-color: black;
-    height: 180px;
-    width: 350px;
-    font-size: 35px;
-    box-shadow: 8px 8px black;
-    border-radius: 20px;
-    font-weight: 900;
-}  
-#CareerAssessment:hover {
-    background-color: gray;
+    background-color: #87a4de;
 }
-
-
 .quiz-description {
     text-align: left;
     max-width: 350px; /* Matches button width */
