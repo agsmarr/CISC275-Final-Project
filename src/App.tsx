@@ -32,9 +32,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div id = "images-and-heading">
-        <img src = {image} id = "left-image"></img>
+        <img src = {image} id = "left-image" alt = ""></img>
         <h1 id = "header">Welcome to the Career Helpi</h1>
-        <img src = {image} id = "right-image"></img>
+        <img src = {image} id = "right-image" alt = ""></img>
         </div>
         <p id = "mini-header">Created by:</p>
         <p id = "names">Amanda Smarr, Saieda Ali Zada, and Yaqing Jiang</p>
