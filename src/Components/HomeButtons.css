@@ -8,64 +8,70 @@
 
 h1 {
     margin-top: 3%;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 900;
 }
 p {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
 }
 #Basic {
-    background-color: #282c34;
-    border-color: black;
-    box-shadow: 8px 8px black;
+    background-color: #9fbcf6;
+    border-color: #9fbcf6;
+    box-shadow: 8px 8px 20px #557bc7;
     border-radius: 20px;
-    height: 180px;
-    width: 350px;
+    height: 250px;
+    width: 550px;
     font-size: 35px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 900;
+    color: #fcf8f5;
+
 }
 #Basic:hover {
-    background-color: gray;}
+    background-color: #87a4de;
+}
 #Detailed {
-    background-color: #282c34;
-    border-color: black;
-    height: 180px;
-    width: 350px;
+    border-color: #9fbcf6;
+    height: 250px;
+    width: 550px;
     font-size: 35px;
-    box-shadow: 8px 8px black;
     border-radius: 20px;
     font-weight: 900;
+    color: #fcf8f5;
+    background-color: #9fbcf6;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 8px 8px 20px #557bc7;
+
+}
+#bottom-h1 {
+    color: #c48dda;
+    font-weight: bold;
+    font-size: 40px;
+}
+#bottom-p {
+    color: #7698dc;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
 }
 #Detailed:hover {
-background-color: gray;}
-
-#CareerAssessment {
-    background-color: #282c34;
-    border-color: black;
-    height: 180px;
-    width: 350px;
-    font-size: 35px;
-    box-shadow: 8px 8px black;
-    border-radius: 20px;
-    font-weight: 900;
-}  
-#CareerAssessment:hover {
-    background-color: gray;
+    background-color: #87a4de;
 }
-
-
 .quiz-description {
     text-align: left;
-    max-width: 350px; /* Matches button width */
+    max-width: 350px;
     padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    margin: 0; /* Remove the previous margin */
+    background-color: #ce9be2 ;
+    border-radius: 10px;
+    margin-top: 20px; /* Remove the previous margin */
+    color: #f8f9fa;
+    text-align: center;
+    box-shadow: 8px 8px 20px #9c52b9;
+    font-weight: bold;
 }
 
-  .quiz-container {
+.quiz-container {
     display: flex;
     flex-direction: column;
     align-items: center;
