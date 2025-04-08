@@ -1,8 +1,13 @@
 import {Button} from 'react-bootstrap';
 import './HomeButtons.css';
-import { useNavigate } from 'react-router-dom';
 export function HomeButtons() {
-const navigate = useNavigate();
+    const goToBasicQuiz = () => {
+        window.location.hash = '/basic-quiz';
+      };
+    
+    const goToDetailedQuiz = () => {
+        window.location.hash = '/detailed-quiz';
+      };
         return (<div>
             <h1 id = "bottom-h1">Choose a quiz!</h1>
             <p id = "bottom-p">Choose between a basic or detailed quiz to discover what type of career is best for you!
@@ -10,7 +15,8 @@ const navigate = useNavigate();
             <div className = "Buttons">
                 <div className="quiz-container">
                     {/*<Link to="/basic-quiz">*/}
-                    <Button id = "Basic" onClick={()=> {navigate("/basic-quiz")}}>Basic Questions Quiz</Button>
+                    <Button id="Basic" onClick={goToBasicQuiz}>Basic Questions Quiz</Button>
+                    
                     {/* adding Basic Question description */}
                         <div className="quiz-description">
                         <p>
@@ -20,7 +26,7 @@ const navigate = useNavigate();
             </div> 
                 <div className="quiz-container">
                     {/*<Link to="/detailed-quiz">*/}
-                    <Button id = "Detailed" onClick={()=> {navigate("/detailed-quiz")}}>Detailed Questions Quiz</Button>
+                    <Button id="Detailed" onClick={goToDetailedQuiz}>Detailed Questions Quiz</Button>
                     {/*</Link>*/}
                         {/* adding Detailed Question description */}
                         <div className="quiz-description">
@@ -31,5 +37,6 @@ const navigate = useNavigate();
                 </div>
 
             </div>
+            
     </div>)
 }
