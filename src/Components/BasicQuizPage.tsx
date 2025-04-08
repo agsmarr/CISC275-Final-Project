@@ -1,13 +1,17 @@
 import React from 'react';
 import './BasicQuizPage.css';
-import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 const BasicQuizPage = () => {
+  const goBackHome = () => {
+    window.location.hash = '/';
+  };
   return (
     <div>
-      <header><Link to="/">
-        <Button variant="secondary" id = "home-button">Home Page</Button>
-      </Link></header>
+      <header>
+        <Button variant="secondary" id="home-button" onClick={goBackHome}>
+          Home Page
+        </Button>
+      </header>
       <h1>Basic Questions Quiz</h1>
       <p>This is the Basic Quiz Page</p>
       {/* Add your basic quiz content here */}
