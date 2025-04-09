@@ -1,6 +1,11 @@
 header {
     background: radial-gradient(circle, #d2a1e6, #9fbcf6 70%);
 }
+.header-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 #home-button {
     background: transparent;
     border-color: transparent;
@@ -9,4 +14,46 @@ header {
 }
 #home-button:hover {
     text-decoration: underline;
+}
+#last-button {
+    background: transparent;
+    border-color: transparent;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+#next-button {
+    background: transparent;
+    border-color: transparent;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+#last-button:hover {
+    text-decoration: underline;
+}
+#next-button:hover {
+    text-decoration: underline;
+}
+#basic-header {
+    background-color: #9fbcf6;
+    box-shadow: 8px 8px 20px #557bc7;
+    color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+h2 {
+    margin-top: 30px;
+    background-color: #ce9be2 ;
+    padding: 1%;
+    margin-left: 275px;
+    margin-right: 275px;
+    border-radius: 10px;
+    color: #f8f9fa;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    box-shadow: 8px 8px 20px #9c52b9;
+}
+footer {
+    margin-top: 50px;
 }
