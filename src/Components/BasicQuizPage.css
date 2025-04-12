@@ -1,12 +1,89 @@
 header {
     background: radial-gradient(circle, #d2a1e6, #9fbcf6 70%);
 }
+.basic-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
 #home-button {
     background: transparent;
     border-color: transparent;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
+    font-size: 22px;
 }
 #home-button:hover {
     text-decoration: underline;
+}
+#previous-button {
+    background-color: #ce9be2;
+    box-shadow: 8px 8px 20px #9c52b9;
+    border-color: transparent;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 20px;
+    padding: 0.7%;
+    border-radius: 10px;
+}
+#next-button {
+    background-color: #ce9be2;
+    box-shadow: 8px 8px 20px #9c52b9;
+    border-color: transparent;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 20px;
+    padding: 0.7%;
+    border-radius: 10px;
+}
+#previous-button:hover {
+    text-decoration: underline;
+}
+#next-button:hover {
+    text-decoration: underline;
+}
+#basic-header {
+    background-color: #9fbcf6;
+    box-shadow: 8px 8px 20px #557bc7;
+    color: #f8f9fa;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-right: 50px;
+    padding-left: 50px;
+    border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+.questions {
+    margin-top: 40px;
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #557bc7;
+}
+h2 {
+    margin-top: 30px;
+    background-color: #ce9be2 ;
+    padding: 1%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 50%;
+    font-size: 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: #f8f9fa;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    box-shadow: 8px 8px 20px #9c52b9;
+}
+footer {
+    margin-top: 75px;
 }
