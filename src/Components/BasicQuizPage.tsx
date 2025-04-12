@@ -13,12 +13,12 @@ const BasicQuizPage = () => {
             Home Page
           </Button>
       </header>
+      <h1 id = "basic-header">Basic Questions Quiz</h1>
       <div className = "basic-navigation">
         <Button id = "previous-button" onClick={() => (question != 1) ? setQuestion(question - 1): setQuestion(question)}>Previous Question</Button>
-        <h1 id = "basic-header">Basic Questions Quiz</h1>
+        <h2>Question {question}</h2>
         <Button id = "next-button" onClick={()=> (question != 7) ? setQuestion(question + 1): setQuestion(question)}>Next Question</Button> 
       </div>
-      <h2>Question {question}</h2>
       <div className = "questions">
         {/* Questions go in span tag --> when next question button is clicked, correct question will display */}
         {(question == 1) ? <span>This is question 1</span> : 

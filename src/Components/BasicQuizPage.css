@@ -4,9 +4,11 @@ header {
 .basic-navigation {
     display: flex;
     flex-direction: row;
-    align-items:normal;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
 }
-
 #home-button {
     background: transparent;
     border-color: transparent;
@@ -24,6 +26,9 @@ header {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 24px;
+    margin-top: 20px;
+    padding: 0.7%;
+    border-radius: 10px;
 }
 #next-button {
     background-color: #ce9be2;
@@ -32,6 +37,9 @@ header {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 24px;
+    margin-top: 20px;
+    padding: 0.7%;
+    border-radius: 10px;
 }
 #previous-button:hover {
     text-decoration: underline;
@@ -44,13 +52,15 @@ header {
     box-shadow: 8px 8px 20px #557bc7;
     color: #f8f9fa;
     padding-top: 30px;
-    text-align: center;
     padding-bottom: 30px;
     padding-top: 30px;
     padding-right: 50px;
     padding-left: 50px;
-    display: center;
     border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 .questions {
     margin-top: 40px;
@@ -63,7 +73,10 @@ h2 {
     margin-top: 30px;
     background-color: #ce9be2 ;
     padding: 1%;
-    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 50%;
+    font-size: 40px;
     border-radius: 10px;
     text-align: center;
     color: #f8f9fa;
