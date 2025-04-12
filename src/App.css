@@ -22,17 +22,14 @@ body {
 }
 #left-image {
   height: 200px;
-  margin-right: 100px;
 }
 #right-image {
   height: 200px;
-  margin-left: 100px;
 }
 #images-and-heading {
   display: flex;
   flex-direction:row;
-  justify-content: center;
-
+  justify-content: space-evenly;
 }
 #header {
   font-family: Georgia, 'Times New Roman', Times, serif;

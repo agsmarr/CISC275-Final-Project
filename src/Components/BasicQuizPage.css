@@ -1,33 +1,39 @@
 header {
     background: radial-gradient(circle, #d2a1e6, #9fbcf6 70%);
 }
-.header-buttons {
+.basic-navigation {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    align-items:normal;
 }
+
 #home-button {
     background: transparent;
     border-color: transparent;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
+    font-size: 22px;
 }
 #home-button:hover {
     text-decoration: underline;
 }
-#last-button {
-    background: transparent;
+#previous-button {
+    background-color: #ce9be2;
+    box-shadow: 8px 8px 20px #9c52b9;
     border-color: transparent;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
+    font-size: 24px;
 }
 #next-button {
-    background: transparent;
+    background-color: #ce9be2;
+    box-shadow: 8px 8px 20px #9c52b9;
     border-color: transparent;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
+    font-size: 24px;
 }
-#last-button:hover {
+#previous-button:hover {
     text-decoration: underline;
 }
 #next-button:hover {
@@ -37,23 +43,34 @@ header {
     background-color: #9fbcf6;
     box-shadow: 8px 8px 20px #557bc7;
     color: #f8f9fa;
-    padding: 30px;
+    padding-top: 30px;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-right: 50px;
+    padding-left: 50px;
+    display: center;
     border-radius: 10px;
-    margin-left: 400px;
-    margin-right: 400px;
+}
+.questions {
+    margin-top: 40px;
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #557bc7;
 }
 h2 {
     margin-top: 30px;
     background-color: #ce9be2 ;
     padding: 1%;
-    margin-left: 275px;
-    margin-right: 275px;
+    width: 600px;
     border-radius: 10px;
+    text-align: center;
     color: #f8f9fa;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     box-shadow: 8px 8px 20px #9c52b9;
 }
 footer {
-    margin-top: 50px;
+    margin-top: 75px;
 }
