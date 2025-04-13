@@ -17,8 +17,8 @@ const BasicQuizPage = () => {
       <p id = "description">Use the 'Next' button to move forward to the next question. Use the 'Previous' button to re-visit the previous question!</p>
       <h2>Question {question}</h2>
       <div className = "basic-navigation">
-        <Button id = "previous-button" onClick={() => (question != 1) ? setQuestion(question - 1): setQuestion(question)}>Previous</Button>
-        <Button id = "next-button" onClick={()=> (question != 7) ? setQuestion(question + 1): setQuestion(question)}>Next</Button> 
+        <Button id = "previous-button" onClick={() => (question !== 1) ? setQuestion(question - 1): setQuestion(question)}>Previous</Button>
+        <Button id = "next-button" onClick={()=> (question !== 7) ? setQuestion(question + 1): setQuestion(question)}>Next</Button> 
       </div>
       <div className = "questions">
         {/* Questions go in span tag --> when next question button is clicked, correct question will display */}
