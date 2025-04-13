@@ -21,13 +21,13 @@ const BasicQuizPage = () => {
       </div>
       <div className = "questions">
         {/* Questions go in span tag --> when next question button is clicked, correct question will display */}
-        {(question == 1) ? <span>This is question 1</span> : 
-        (question == 2) ? <span>This is question 2</span> : 
-        (question == 3) ? <span>This is question 3</span> : 
-        (question == 4) ? <span>This is question 4</span> : 
-        (question == 5) ? <span>This is question 5</span> : 
-        (question == 6) ? <span>This is question 6</span> : 
-        (question == 7) ? <span>This is question 7</span> : 
+        {(question === 1) ? <span>This is question 1</span> : 
+        (question === 2) ? <span>This is question 2</span> : 
+        (question === 3) ? <span>This is question 3</span> : 
+        (question === 4) ? <span>This is question 4</span> : 
+        (question === 5) ? <span>This is question 5</span> : 
+        (question === 6) ? <span>This is question 6</span> : 
+        (question === 7) ? <span>This is question 7</span> : 
         <span></span>}
       </div>
     </div>
