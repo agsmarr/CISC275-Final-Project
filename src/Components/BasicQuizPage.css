@@ -4,10 +4,8 @@ header {
 .basic-navigation {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    width: 80%;
-    margin: 0 auto;
 }
 #home-button {
     background: transparent;
@@ -19,26 +17,34 @@ header {
 #home-button:hover {
     text-decoration: underline;
 }
+#description {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #c48dda;
+    font-weight: bold;
+
+}
 #previous-button {
-    background-color: #ce9be2;
+    background-color: #ce9be2 ;
     box-shadow: 8px 8px 20px #9c52b9;
     border-color: transparent;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 24px;
-    margin-top: 20px;
     padding: 0.7%;
     border-radius: 10px;
 }
 #next-button {
-    background-color: #ce9be2;
+    background-color: #ce9be2 ;
     box-shadow: 8px 8px 20px #9c52b9;
     border-color: transparent;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 24px;
-    margin-top: 20px;
-    padding: 0.7%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-top: 0.7%;
+    padding-bottom: 0.7%;
     border-radius: 10px;
 }
 #previous-button:hover {
@@ -67,22 +73,21 @@ header {
     font-size: 24px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
-    color: #557bc7;
+    color: #6b8dd2;
+    background-color: #eeebea;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 10px;
+    padding: 2%;
 }
 h2 {
     margin-top: 30px;
-    background-color: #ce9be2 ;
-    padding: 1%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    width: 50%;
-    font-size: 40px;
+    font-size: 45px;
     border-radius: 10px;
     text-align: center;
-    color: #f8f9fa;
+    color: #7698dc;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
-    box-shadow: 8px 8px 20px #9c52b9;
 }
 footer {
     margin-top: 75px;
