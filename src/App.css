@@ -1,55 +1,57 @@
 .App {
   text-align: center;
-}
-body {
-  background-color: #fcf8f5  ;
-}
-
-.App-logo {
+ }
+ body {
+  background-color: #fcf8f5;
+ }
+ 
+ 
+ .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-#mini-header {
+ }
+ 
+ 
+ #mini-header {
   font-weight: bold;
   font-size: 30px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-}
-#names {
+ }
+ #names {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
   font-size: 20px;
-}
-#left-image {
+ }
+ #left-image {
   height: 200px;
-}
-#right-image {
+ }
+ #right-image {
   height: 200px;
-}
-#images-and-heading {
+ }
+ #images-and-heading {
   display: flex;
   flex-direction:row;
   justify-content: space-evenly;
-}
-#header {
+ }
+ #header {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 80px;
   color: #fcf8f5;
-}
-.App-header {
+ }
+ .App-header {
   background: radial-gradient(circle, #d2a1e6, #9fbcf6 70%);
   color: #fcf8f5;
   padding:1%;
-}
-.App-footer {
+ }
+ .App-footer {
   background: radial-gradient(circle, #d2a1e6, #9fbcf6 70%);
   padding: 1%;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: #fcf8f5;
   font-size: 30px;
   font-weight: bold;
-}
-.Submit-Button {
+ }
+ .Submit-Button {
   background-color: #fcf8f5;
   color: #688cd5;
   height: 50px;
@@ -57,17 +59,10 @@ body {
   font-size: 25px;
   border-color: #ddd8d4;
   font-weight: bold;
-}
-.Submit-Button:hover {
+ }
+ .Submit-Button:hover {
   background-color: #ddd8d4;
   border-color: #ddd8d4;
   color: #688cd5;
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+ }
+ 
