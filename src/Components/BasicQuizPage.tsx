@@ -1,14 +1,34 @@
 import React, {useState} from 'react';
 import './BasicQuizPage.css';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form ,ProgressBar} from 'react-bootstrap';
 const BasicQuizPage = () => {
+  const[answer1, setAnswer1] = useState<string[]>([]);
   const[answer2, setAnswer2] = useState<string>("");
   const[answer3, setAnswer3] = useState<string>("");
   const[answer4, setAnswer4] = useState<string>("");
   const[answer5, setAnswer5] = useState<string>("");
   const[answer6, setAnswer6] = useState<string>("");
   const[answer7, setAnswer7] = useState<string>("");
+
+  const totalQuestions = 7;
+  const answeredCount =
+    (answer1.length > 0 ? 1 : 0) + 
+    (answer2 ? 1 : 0) + 
+    (answer3 ? 1 : 0) + 
+    (answer4 ? 1 : 0) + 
+    (answer5 ? 1 : 0) + 
+    (answer6 ? 1 : 0) + 
+    (answer7 ? 1 : 0);
+  const progress = (answeredCount / totalQuestions) * 100;
+
   /* Setting Answers*/
+  const updateAnswer1 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = event.target;
+    setAnswer1((prev) =>
+      checked ? [...prev, value] : prev.filter((item) => item !== value)
+    );
+  };
+
   function updateAnswer2(event: React.ChangeEvent<HTMLInputElement>) {
     setAnswer2(event.target.value);
   }
@@ -27,10 +47,13 @@ const BasicQuizPage = () => {
   function updateAnswer7(event: React.ChangeEvent<HTMLInputElement>) {
     setAnswer7(event.target.value);
   }
+  const isAllAnswered = answeredCount === totalQuestions;
   /* Navigation back home */
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  
+
   return (
     <div>
       <header>
@@ -39,16 +62,19 @@ const BasicQuizPage = () => {
           </Button>
       </header>
       <h1 id = "basic-header">Basic Questions Quiz</h1>
+      <div className="sticky-progress-bar mt-4">
+        <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
+      </div>
       <div className = "question-box">
         <div className = "question-boxes">
           <h2 className = "question-headers">Question 1</h2>
           <div className = "questions">What subjects or topics do you enjoy the most?</div>
           <div className = "answers">
-            <Form.Check type = "checkbox" id = "question1-answer1" label = "The Arts"></Form.Check>
-            <Form.Check type = "checkbox" id = "question1-answer2" label = "Humanities"></Form.Check>
-            <Form.Check type = "checkbox" id = "question1-answer3" label = "Social Sciences"></Form.Check>
-            <Form.Check type = "checkbox" id = "question1-answer4" label = "STEM subjects (Science, Technology, Engineering, Math)"></Form.Check>
-            <Form.Check type = "checkbox" id = "question1-answer5" label = "None of the Above"></Form.Check>
+            <Form.Check type = "checkbox" id = "question1-answer1" label = "The Arts"value="The Arts" onChange={updateAnswer1}checked={answer1.includes("The Arts")}></Form.Check>
+            <Form.Check type = "checkbox" id = "question1-answer2" label = "Humanities"value="Humanities" onChange={updateAnswer1}checked={answer1.includes("Humanities")}></Form.Check>
+            <Form.Check type = "checkbox" id = "question1-answer3" label = "Social Sciences"value="Social Sciences" onChange={updateAnswer1}checked={answer1.includes("Social Sciences")}></Form.Check>
+            <Form.Check type = "checkbox" id = "question1-answer4" label = "STEM subjects (Science, Technology, Engineering, Math)"value="STEM subjects (Science, Technology, Engineering, Math)" onChange={updateAnswer1}checked={answer1.includes("STEM subjects (Science, Technology, Engineering, Math)")}></Form.Check>
+            <Form.Check type = "checkbox" id = "question1-answer5" label = "None of the Above"value="None of the Above" onChange={updateAnswer1}checked={answer1.includes("None of the Above")}></Form.Check>
           </div>
         </div>
         <div className = "question-boxes">
@@ -91,7 +117,11 @@ const BasicQuizPage = () => {
           <Form.Check type = "radio" id = "question7-answer2" label = "Assisting Community" value = "Assisting Community" onChange={updateAnswer7} checked = {answer7 === "Assisting Community"}></Form.Check>
           <Form.Check type = "radio" id = "question7-answer3" label = "Doing What You Love" value = "Doing What You Love" onChange={updateAnswer7} checked = {answer7 === "Doing What You Love"}></Form.Check>
         </div>
-        <Button id = "Submit-Button">Get Results!</Button>
+        <Button
+          id="Submit-Button"onClick={() => alert("Results submitted!")}disabled={!isAllAnswered}
+            style={{backgroundColor: isAllAnswered ? 'purple' : 'grey',cursor: isAllAnswered ? 'pointer' : 'not-allowed',}}>
+          Get Results!
+        </Button>
       </div>
     </div>
   );
