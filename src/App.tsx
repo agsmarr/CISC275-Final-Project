@@ -38,6 +38,9 @@ function App() {
       case "#/detailed-quiz":
         return <DetailedQuizPage />;
       default:
+        if (language == 'spanish') {
+          return ;
+        }
         return <HomeButtons />;
     }
   }
@@ -48,6 +51,7 @@ function App() {
   }, []);
   return (
     <div className="App">
+      {language == 'english' ? 
       <header className="App-header">
         <div id = "images-and-heading">
         <img src = {image} id = "left-image" alt = ""></img>
@@ -56,7 +60,28 @@ function App() {
         </div>
         <p id = "mini-header">Created by:</p>
         <p id = "names">Amanda Smarr, Saieda Ali Zada, and Yaqing Jiang</p>
+      </header> : 
+      language == 'spanish' ? 
+      <header className="App-header">
+        <div id = "images-and-heading">
+        <img src = {image} id = "left-image" alt = ""></img>
+        <h1 id = "header">Bienvenido a Career Helpi</h1>
+        <img src = {image} id = "right-image" alt = ""></img>
+        </div>
+        <p id = "mini-header">Creado por:</p>
+        <p id = "names">Amanda Smarr, Saieda Ali Zada, and Yaqing Jiang</p>
+      </header> :
+      language == 'chinese' && 
+      <header className="App-header">
+        <div id = "images-and-heading">
+        <img src = {image} id = "left-image" alt = ""></img>
+        <h1 id = "header">欢迎来到职业帮助</h1>
+        <img src = {image} id = "right-image" alt = ""></img>
+        </div>
+        <p id = "mini-header">创建者:</p>
+        <p id = "names">Amanda Smarr, Saieda Ali Zada, and Yaqing Jiang</p>
       </header>
+}
       {/*Language Selection*/}
         <Form.Group id = "language-select">
             <Form.Label>Language: </Form.Label>
