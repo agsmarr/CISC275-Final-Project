@@ -36,14 +36,14 @@ function App() {
   function renderPage() {
     switch (route) {
       case "#/basic-quiz":
-        if (language == 'spanish') {
+        if (language === 'spanish') {
           return <SpanishBasicQuiz></SpanishBasicQuiz>
         }
         return <BasicQuizPage />;
       case "#/detailed-quiz":
         return <DetailedQuizPage />;
       default:
-        if (language == 'spanish') {
+        if (language === 'spanish') {
           return <SpanHomeButtons></SpanHomeButtons>;
         }
         return <HomeButtons />;
@@ -59,17 +59,17 @@ function App() {
       <header className="App-header">
         <div id = "images-and-heading">
         <img src = {image} id = "left-image" alt = ""></img>
-        {language == 'english' ? <h1 id = "header">Welcome to the Career Helpi</h1> : 
-        language == 'spanish' ? <h1 id = "header">Bienvenido a Career Helpi</h1> : 
-        language == 'chinese' && <h1 id = "header">欢迎来到职业帮助</h1>}
+        {language === 'english' ? <h1 id = "header">Welcome to the Career Helpi</h1> : 
+        language === 'spanish' ? <h1 id = "header">Bienvenido a Career Helpi</h1> : 
+        language === 'chinese' && <h1 id = "header">欢迎来到职业帮助</h1>}
         <img src = {image} id = "right-image" alt = ""></img>
         </div>
-        {language == 'english' ? <p id = "mini-header">Created by:</p>: 
-        language == 'spanish' ? <p id = "mini-header">Creado por:</p>:
-        language == 'chinese' && <p id = "mini-header">创建者：</p>}
+        {language ==='english' ? <p id = "mini-header">Created by:</p>: 
+        language === 'spanish' ? <p id = "mini-header">Creado por:</p>:
+        language === 'chinese' && <p id = "mini-header">创建者：</p>}
         <p id = "names">Amanda Smarr, Saieda Ali Zada, and Yaqing Jiang</p>
       </header>
-      {route == "#/" && 
+      {route === "#/" && 
       <Form.Group id = "language-select">
           <Form.Label>Language: </Form.Label>
           <Form.Select id = "options" value = {language} onChange = {changeLanguage}>
