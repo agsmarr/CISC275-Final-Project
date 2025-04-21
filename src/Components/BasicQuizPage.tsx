@@ -63,7 +63,7 @@ const BasicQuizPage = () => {
       </header>
       <h1 id = "basic-header">Basic Questions Quiz</h1>
       <div className="sticky-progress-bar mt-4">
-        <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
+        <ProgressBar now={progress} variant="info" label={`${Math.round(progress)}%`} />
       </div>
       <div className = "question-box">
         <div className = "question-boxes">
