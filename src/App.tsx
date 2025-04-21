@@ -26,6 +26,11 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+  //language selection
+  const [language, setLanguage] = useState<string>("english");
+    function changeLanguage(event: React.ChangeEvent<HTMLSelectElement>) {
+        setLanguage(event.target.value);
+    }
   function renderPage() {
     switch (route) {
       case "#/basic-quiz":
@@ -42,7 +47,6 @@ function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
   return (
-    
     <div className="App">
       <header className="App-header">
         <div id = "images-and-heading">
@@ -52,8 +56,16 @@ function App() {
         </div>
         <p id = "mini-header">Created by:</p>
         <p id = "names">Amanda Smarr, Saieda Ali Zada, and Yaqing Jiang</p>
-        <p>Learn React</p>
       </header>
+      {/*Language Selection*/}
+        <Form.Group id = "language-select">
+            <Form.Label>Language: </Form.Label>
+            <Form.Select id = "options" value = {language} onChange = {changeLanguage}>
+                <option value = "english">English</option>
+                <option value = "spanish">Spanish</option>
+                <option value = "chinese">Chinese</option>
+            </Form.Select>
+        </Form.Group>
       {renderPage()}
         <footer className = "App-footer"><Form>
         <Form.Label>API Key:</Form.Label>
