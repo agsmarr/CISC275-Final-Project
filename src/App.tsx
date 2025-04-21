@@ -7,6 +7,7 @@ import BasicQuizPage from "./Components/BasicQuizPage";
 import DetailedQuizPage from "./Components/DetailedQuizPage";
 import { SpanHomeButtons } from './Components/SpanishHomeButtons';
 import SpanishBasicQuiz from './Components/SpanishBasicQuiz';
+import SpanishDetailedQuiz from './Components/SpanishDetailedQuiz';
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -41,6 +42,9 @@ function App() {
         }
         return <BasicQuizPage />;
       case "#/detailed-quiz":
+        if (language === 'spanish') {
+          return <SpanishDetailedQuiz></SpanishDetailedQuiz>
+        }
         return <DetailedQuizPage />;
       default:
         if (language === 'spanish') {

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Button, Form ,ProgressBar} from 'react-bootstrap';
 import './DetailedQuizPage.css'
-const DetailedQuizPage = () => {
+const SpanishDetailedQuiz = () => {
   const [textAnswer1, setTextAnswer1] = useState('');
   const [textAnswer2, setTextAnswer2] = useState('');
   const [textAnswer3, setTextAnswer3] = useState('');
@@ -139,4 +139,4 @@ const DetailedQuizPage = () => {
   );
 };
 
-export default DetailedQuizPage;
+export default SpanishDetailedQuiz;
