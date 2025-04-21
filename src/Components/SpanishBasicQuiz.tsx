@@ -79,48 +79,48 @@ const SpanishBasicQuiz = () => {
         </div>
         <div className = "question-boxes">
         <h2 className = "question-headers">Pregunta 2</h2>
-          <div className = "questions">Do you prefer working with people, data, or objects?</div>
+          <div className = "questions">¿Prefieres trabajar con personas, datos u objetos?</div>
           <div className = "answers">
-            <Form.Check type = "radio" id = "question2-answer1" label = "People" value = "People" onChange={updateAnswer2} checked = {answer2 === "People"}></Form.Check>
-            <Form.Check type = "radio" id = "question2-answer2" label = "Data" value = "Data" onChange={updateAnswer2} checked = {answer2 === "Data"}></Form.Check>
-            <Form.Check type = "radio" id = "question2-answer3" label = "Objects" value = "Objects" onChange={updateAnswer2} checked = {answer2 === "Objects"}></Form.Check>
+            <Form.Check type = "radio" id = "question2-answer1" label = "Personas" value = "People" onChange={updateAnswer2} checked = {answer2 === "People"}></Form.Check>
+            <Form.Check type = "radio" id = "question2-answer2" label = "Datos" value = "Data" onChange={updateAnswer2} checked = {answer2 === "Data"}></Form.Check>
+            <Form.Check type = "radio" id = "question2-answer3" label = "Objetos" value = "Objects" onChange={updateAnswer2} checked = {answer2 === "Objects"}></Form.Check>
           </div>
         </div>
         <div className = "question-boxes">
         <h2 className = "question-headers">Pregunta 3</h2>
-          <div className = "questions">Would you prefer to work indoors or outdoors?</div>
-          <Form.Check type = "radio" id = "question3-answer1" label = "Indoors" value = "Indoors" onChange={updateAnswer3} checked = {answer3 === "Indoors"}></Form.Check>
-          <Form.Check type = "radio" id = "question3-answer2" label = "Outdoors" value = "Outdoors" onChange={updateAnswer3} checked = {answer3 === "Outdoors"}></Form.Check>
+          <div className = "questions">¿Preferirías trabajar en interiores o exteriores?</div>
+          <Form.Check type = "radio" id = "question3-answer1" label = "Interiores" value = "Indoors" onChange={updateAnswer3} checked = {answer3 === "Indoors"}></Form.Check>
+          <Form.Check type = "radio" id = "question3-answer2" label = "Exteriores" value = "Outdoors" onChange={updateAnswer3} checked = {answer3 === "Outdoors"}></Form.Check>
         </div>
         <div className = "question-boxes">
         <h2 className = "question-headers">Pregunta 4</h2>
-          <div className = "questions">Would you like to work alone or in a team?</div>
-          <Form.Check type = "radio" id = "question4-answer1" label = "Alone" value = "Alone" onChange={updateAnswer4} checked = {answer4 === "Alone"}></Form.Check>
-          <Form.Check type = "radio" id = "question4-answer2" label = "In a Team" value = "In a Team" onChange={updateAnswer4} checked = {answer4 === "In a Team"}></Form.Check>
+          <div className = "questions">¿Te gustaría trabajar solo o en equipo?</div>
+          <Form.Check type = "radio" id = "question4-answer1" label = "Solo" value = "Alone" onChange={updateAnswer4} checked = {answer4 === "Alone"}></Form.Check>
+          <Form.Check type = "radio" id = "question4-answer2" label = "En un Equipo" value = "In a Team" onChange={updateAnswer4} checked = {answer4 === "In a Team"}></Form.Check>
         </div> 
         <div className = "question-boxes">
         <h2 className = "question-headers">Pregunta 5</h2>
-          <div className = "questions">Do you like leading a team or following instructions?</div>
-          <Form.Check type = "radio" id = "question5-answer1" label = "Leading a Team" value = "Leading a Team" onChange={updateAnswer5} checked = {answer5 === "Leading a Team"}></Form.Check>
-          <Form.Check type = "radio" id = "question5-answer2" label = "Following Instructions" value = "Following Instructions" onChange={updateAnswer5} checked = {answer5 === "Following Instructions"}></Form.Check>
+          <div className = "questions">¿Te gusta liderar un equipo o seguir instrucciones?</div>
+          <Form.Check type = "radio" id = "question5-answer1" label = "Liderando un Equipo" value = "Leading a Team" onChange={updateAnswer5} checked = {answer5 === "Leading a Team"}></Form.Check>
+          <Form.Check type = "radio" id = "question5-answer2" label = "Seguir Instrucciones" value = "Following Instructions" onChange={updateAnswer5} checked = {answer5 === "Following Instructions"}></Form.Check>
         </div> 
         <div className = "question-boxes">
         <h2 className = "question-headers">Pregunta 6</h2>
-          <div className = "questions">Do you enjoy routine tasks or trying new things often?</div>
-          <Form.Check type = "radio" id = "question6-answer1" label = "Routine Tasks" value = "Routine Tasks" onChange={updateAnswer6} checked = {answer6 === "Routine Tasks"}></Form.Check>
-          <Form.Check type = "radio" id = "question6-answer2" label = "Trying New Things" value = "Trying New Things" onChange={updateAnswer6} checked = {answer6 === "Trying New Things"}></Form.Check>
+          <div className = "questions">¿Disfrutas de las tareas rutinarias o de probar cosas nuevas a menudo?</div>
+          <Form.Check type = "radio" id = "question6-answer1" label = "Tareas de Rutina" value = "Routine Tasks" onChange={updateAnswer6} checked = {answer6 === "Routine Tasks"}></Form.Check>
+          <Form.Check type = "radio" id = "question6-answer2" label = "Probar Cosas Nuevas" value = "Trying New Things" onChange={updateAnswer6} checked = {answer6 === "Trying New Things"}></Form.Check>
         </div>
         <div className = "question-boxes">
         <h2 className = "question-headers">Pregunta 7</h2>
-          <div className = "questions">What is more important to you: money, assisting community, or doing what you love?</div>
+          <div className = "questions">¿Qué es más importante para usted: el dinero, ayudar a la comunidad o hacer lo que ama?</div>
           <Form.Check type = "radio" id = "question7-answer1" label = "Money" value = "Money" onChange={updateAnswer7} checked = {answer7 === "Money"}></Form.Check>
-          <Form.Check type = "radio" id = "question7-answer2" label = "Assisting Community" value = "Assisting Community" onChange={updateAnswer7} checked = {answer7 === "Assisting Community"}></Form.Check>
-          <Form.Check type = "radio" id = "question7-answer3" label = "Doing What You Love" value = "Doing What You Love" onChange={updateAnswer7} checked = {answer7 === "Doing What You Love"}></Form.Check>
+          <Form.Check type = "radio" id = "question7-answer2" label = "Ayudando a la Comunidad" value = "Assisting Community" onChange={updateAnswer7} checked = {answer7 === "Assisting Community"}></Form.Check>
+          <Form.Check type = "radio" id = "question7-answer3" label = "Haciendo lo que Amas" value = "Doing What You Love" onChange={updateAnswer7} checked = {answer7 === "Doing What You Love"}></Form.Check>
         </div>
         <Button
-          id="Submit-Button"onClick={() => alert("Results submitted!")}disabled={!isAllAnswered}
+          id="Submit-Button"onClick={() => alert("¡Resultados enviados!")}disabled={!isAllAnswered}
             style={{backgroundColor: isAllAnswered ? 'purple' : 'grey',cursor: isAllAnswered ? 'pointer' : 'not-allowed',}}>
-          Get Results!
+          ¡Obtenga Resultados!
         </Button>
       </div>
     </div>
