@@ -31,7 +31,7 @@ const SpanishDetailedQuiz = () => {
     <div>
       <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
-          Home Page
+        Página de Inicio
         </Button>
       </header>
       <h1 id = "detailed-header">Cuestionario de Preguntas Detalladas</h1>

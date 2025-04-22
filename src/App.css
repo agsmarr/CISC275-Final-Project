@@ -58,6 +58,14 @@
   border-color: #ddd8d4;
   color: #688cd5;
  }
+#about-us {
+  white-space: nowrap;
+  margin-top: 20px;
+  margin-left: 1%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: #b67ace;
+}
 #language-select {
   display: flex;
   flex-direction: row;
@@ -66,8 +74,8 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
   color: #b67ace;
-  margin-left: 80%;
-  margin-right: 2%;
+  margin-left: 75%;
+  margin-right: 1%;
 }
 #language-label {
   white-space: nowrap;

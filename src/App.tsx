@@ -77,7 +77,7 @@ function App() {
         language === 'chinese' && <p id = "mini-header">创建者：</p>}
         <p id = "names">Amanda Smarr, Saieda Ali Zada, and Yaqing Jiang</p>
       </header>
-      {route === "#/" && 
+      {route === "#/" &&
       <Form.Group id = "language-select">
         {language === 'english' ? <Form.Label id = "language-label">Language: </Form.Label> : 
         language === 'spanish' ? <Form.Label id = "language-label">El Idioma:</Form.Label>: 
