@@ -3,28 +3,8 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
-  ✓ renders learn react link (43 ms)
+  ✓ renders learn react link (45 ms)
 
--------------------------|---------|----------|---------|---------|----------------------
-File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
--------------------------|---------|----------|---------|---------|----------------------
-All files                |   16.92 |     8.45 |    9.43 |    16.8 |                      
- src                     |    42.1 |    22.22 |      40 |   41.66 |                      
-  App.tsx                |   59.25 |    26.08 |      50 |      60 | 15,23-29,34,39-44,47 
-  index.tsx              |       0 |      100 |     100 |       0 | 6-18                 
-  reportWebVitals.ts     |       0 |        0 |       0 |       0 | 3-10                 
- src/Components          |    6.52 |        0 |    2.32 |    6.74 |                      
-  BasicQuizPage.tsx      |     3.7 |        0 |       0 |    3.84 | 5-121                
-  DetailedQuizPage.tsx   |    3.57 |        0 |       0 |     3.7 | 4-124                
-  HomeButtons.tsx        |      60 |      100 |   33.33 |      60 | 5,9                  
-  SpanishBasicQuiz.tsx   |     3.7 |        0 |       0 |    3.84 | 5-121                
-  SpanishHomeButtons.tsx |       0 |      100 |       0 |       0 | 4-11                 
--------------------------|---------|----------|---------|---------|----------------------
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
-Snapshots:   0 total
-Time:        3.123 s
-Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
@@ -37,3 +17,24 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
+--------------------------|---------|----------|---------|---------|----------------------
+File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
+--------------------------|---------|----------|---------|---------|----------------------
+All files                 |   14.37 |     7.79 |    7.57 |   14.28 |                      
+ src                      |      40 |    20.68 |      40 |   39.47 |                      
+  App.tsx                 |   55.17 |       24 |      50 |   55.55 | 16,24-30,35,40-48,51 
+  index.tsx               |       0 |      100 |     100 |       0 | 6-18                 
+  reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10                 
+ src/Components           |    5.83 |        0 |    1.78 |    6.03 |                      
+  BasicQuizPage.tsx       |     3.7 |        0 |       0 |    3.84 | 5-121                
+  DetailedQuizPage.tsx    |    3.57 |        0 |       0 |     3.7 | 5-133                
+  HomeButtons.tsx         |      60 |      100 |   33.33 |      60 | 5,9                  
+  SpanishBasicQuiz.tsx    |     3.7 |        0 |       0 |    3.84 | 5-121                
+  SpanishDetailedQuiz.tsx |    3.57 |        0 |       0 |     3.7 | 5-133                
+  SpanishHomeButtons.tsx  |       0 |      100 |       0 |       0 | 4-11                 
+--------------------------|---------|----------|---------|---------|----------------------
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        3.402 s
+Ran all test suites.
