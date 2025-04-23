@@ -5,13 +5,6 @@
   background-color: #fcf8f5;
  }
  
- 
- .App-logo {
-  height: 40vmin;
-  pointer-events: none;
- }
- 
- 
  #mini-header {
   font-weight: bold;
   font-size: 30px;
@@ -65,4 +58,32 @@
   border-color: #ddd8d4;
   color: #688cd5;
  }
- 
+#about-us {
+  white-space: nowrap;
+  margin-top: 20px;
+  margin-left: 1%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: #b67ace;
+}
+#language-select {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: #b67ace;
+  margin-left: 75%;
+  margin-right: 1%;
+}
+#language-label {
+  white-space: nowrap;
+}
+#options {
+  margin-left: 15px;
+  background-color: #f0f0f0;
+  color: #7698dc;
+  font-weight: bold;
+  height: 40px;
+}

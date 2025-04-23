@@ -8,6 +8,9 @@ import DetailedQuizPage from "./Components/DetailedQuizPage";
 import { SpanHomeButtons } from './Components/SpanishHomeButtons';
 import SpanishBasicQuiz from './Components/SpanishBasicQuiz';
 import SpanishDetailedQuiz from './Components/SpanishDetailedQuiz';
+import { ChineseHomeButtons } from './Components/ChineseHomeButtons';
+import ChineseBasicQuiz from './Components/ChineseBasicQuiz';
+import ChineseDetailedQuiz from './Components/ChineseDetailedQuiz';
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -40,15 +43,24 @@ function App() {
         if (language === 'spanish') {
           return <SpanishBasicQuiz></SpanishBasicQuiz>
         }
+        if (language === 'chinese') {
+          return <ChineseBasicQuiz></ChineseBasicQuiz>
+        }
         return <BasicQuizPage />;
       case "#/detailed-quiz":
         if (language === 'spanish') {
           return <SpanishDetailedQuiz></SpanishDetailedQuiz>
         }
+        if (language === 'chinese') {
+          return <ChineseDetailedQuiz></ChineseDetailedQuiz>
+        }
         return <DetailedQuizPage />;
       default:
         if (language === 'spanish') {
           return <SpanHomeButtons></SpanHomeButtons>;
+        }
+        if (language === 'chinese') {
+          return <ChineseHomeButtons></ChineseHomeButtons>
         }
         return <HomeButtons />;
     }
@@ -73,9 +85,23 @@ function App() {
         language === 'chinese' && <p id = "mini-header">创建者：</p>}
         <p id = "names">Amanda Smarr, Saieda Ali Zada, and Yaqing Jiang</p>
       </header>
-      {route === "#/" && 
+      {/*Language dropdown only shows when on the home page*/}
+      {route === "#/" &&
       <Form.Group id = "language-select">
-          <Form.Label>Language: </Form.Label>
+        {language === 'english' ? <Form.Label id = "language-label">Language: </Form.Label> : 
+        language === 'spanish' ? <Form.Label id = "language-label">El Idioma:</Form.Label>: 
+        language === 'chinese' && <Form.Label id = "language-label">语言:</Form.Label>}
+          <Form.Select id = "options" value = {language} onChange = {changeLanguage}>
+              <option value = "english">English</option>
+              <option value = "spanish">Español</option>
+              <option value = "chinese">中文</option>
+          </Form.Select>
+      </Form.Group>}
+      {route === "" &&
+      <Form.Group id = "language-select">
+        {language === 'english' ? <Form.Label id = "language-label">Language: </Form.Label> : 
+        language === 'spanish' ? <Form.Label id = "language-label">El Idioma:</Form.Label>: 
+        language === 'chinese' && <Form.Label id = "language-label">语言:</Form.Label>}
           <Form.Select id = "options" value = {language} onChange = {changeLanguage}>
               <option value = "english">English</option>
               <option value = "spanish">Español</option>
@@ -83,9 +109,12 @@ function App() {
           </Form.Select>
       </Form.Group>}
       {renderPage()}
+      {/*API key footer*/}
       <footer className = "App-footer"><Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+        {language === 'english' ? <Form.Label>API Key:</Form.Label> : 
+        language === 'spanish' ? <Form.Label> Clave API:</Form.Label>: 
+        language === 'chinese' && <Form.Label>API 密钥:</Form.Label>}
+        <Form.Control type="password" placeholder = "API"  onChange={changeKey}></Form.Control>
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form></footer>
