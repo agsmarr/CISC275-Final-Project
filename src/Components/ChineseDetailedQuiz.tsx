@@ -43,7 +43,7 @@ const ChineseDetailedQuiz = () => {
         <div className = "question-boxes">
         <h2 className = "question-headers">问题1</h2>
         <Form.Group className="questions" controlId="q1">
-          <Form.Label>Do you like to commute to work? If yes, how far?</Form.Label>
+          <Form.Label>你喜欢通勤上班吗？如果喜欢，通勤距离多远？</Form.Label>
           <Form.Control
             type="text"
             value={textAnswer1}
@@ -54,7 +54,7 @@ const ChineseDetailedQuiz = () => {
         <div className = "question-boxes">
         <h2 className = "question-headers">问题2</h2>
         <Form.Group className="questions" controlId="q2">
-          <Form.Label>What do you do in your leisure time?</Form.Label>
+          <Form.Label>你在闲暇时做什么？</Form.Label>
           <Form.Control
             type="text"
             value={textAnswer2}
@@ -65,7 +65,7 @@ const ChineseDetailedQuiz = () => {
         <div className = "question-boxes">
         <h2 className = "question-headers">问题3</h2>
         <Form.Group className="questions" controlId="q3">
-          <Form.Label>What activities interests you? Why?</Form.Label>
+          <Form.Label>你对什么活动感兴趣？为什么？</Form.Label>
           <Form.Control
            type="text"
            value={textAnswer3}
@@ -76,7 +76,7 @@ const ChineseDetailedQuiz = () => {
         <div className = "question-boxes">
         <h2 className = "question-headers">问题4</h2>
         <Form.Group className="questions" controlId="q4">
-          <Form.Label>What are your favorite classes and why?</Form.Label>
+          <Form.Label>您最喜欢哪些课程？为什么？</Form.Label>
           <Form.Control
            type="text"
           value={textAnswer4}
@@ -87,7 +87,7 @@ const ChineseDetailedQuiz = () => {
         <div className = "question-boxes">
         <h2 className = "question-headers">问题5</h2>
         <Form.Group className="questions" controlId="q5">
-          <Form.Label>What are your soft and hard skills?</Form.Label>
+          <Form.Label>你的软技能和硬技能是什么？</Form.Label>
           <Form.Control
           type="text"
           value={textAnswer5}
@@ -98,7 +98,7 @@ const ChineseDetailedQuiz = () => {
         <div className = "question-boxes">
         <h2 className = "question-headers">问题6</h2>
         <Form.Group className="questions" controlId="q6">
-          <Form.Label>What are the three top characteristics you want to have in your work environment?</Form.Label>
+          <Form.Label>您希望您的工作环境具备哪三个最重要的特征？</Form.Label>
           <Form.Control
             type="text"
             value={textAnswer6}
@@ -109,7 +109,7 @@ const ChineseDetailedQuiz = () => {
         <div className = "question-boxes">
         <h2 className = "question-headers">问题7</h2>
         <Form.Group className="questions" controlId="q7">
-          <Form.Label>How important is job salary compared to job satisfaction when choosing a career?</Form.Label>
+          <Form.Label>在选择职业时，薪水与工作满意度相比有多重要？</Form.Label>
           <Form.Control
            type="text"
            value={textAnswer7}
@@ -120,7 +120,7 @@ const ChineseDetailedQuiz = () => {
         <div className = "question-boxes">
         <h2 className = "question-headers">问题8</h2>
         <Form.Group className="questions" controlId="q8">
-         <Form.Label>Do you see yourself in a leadership role or would you rather specialize in a specific skill?</Form.Label>
+         <Form.Label>您认为自己适合担任领导角色吗？或者您更愿意专攻某项特定技能？</Form.Label>
           <Form.Control
             type="text"
             value={textAnswer8}
@@ -130,9 +130,9 @@ const ChineseDetailedQuiz = () => {
         </div>
       </Form>
       <Button
-        id="Submit-Button"onClick={() => alert("Results submitted!")}disabled={!isAllAnswered}
+        id="Submit-Button"onClick={() => alert("结果已提交！")}disabled={!isAllAnswered}
         style={{backgroundColor: isAllAnswered ? 'purple' : 'grey',cursor: isAllAnswered ? 'pointer' : 'not-allowed',}}>
-          Get Results!
+          获得结果！
       </Button>
       </div>
     </div>
