@@ -10,12 +10,12 @@ export interface BasicQuizAnswers {
   }
   
   export async function generateCareerReport(answers: BasicQuizAnswers, apiKey: string): Promise<string> {
-    // Define the system role - this sets how the AI should behave
+    // Define a role for the system
     const systemRole = `You are a career guidance expert. Analyze the user's quiz answers and provide a detailed, 
     personalized career report. Suggest 3-5 suitable career paths with explanations for each recommendation. 
     Format the response with clear headings and bullet points. Keep it professional yet friendly.`;
   
-    // Define the user role - this is the prompt that will be sent with the user's answers
+    // Define a role the user 
     const userPrompt = `Based on these answers to career assessment questions, provide a personalized career report:
     
     Subjects enjoyed: ${answers.answer1.join(', ')}
@@ -36,12 +36,12 @@ export interface BasicQuizAnswers {
           'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify({
-          model: 'gpt-4', // or 'gpt-4-turbo' for newer models
+          model: 'gpt-4', 
           messages: [
             { role: 'system', content: systemRole },
             { role: 'user', content: userPrompt }
           ],
-          temperature: 0.7 // Controls creativity (0.0 to 2.0)
+          temperature: 0.7 
         })
       });
   
