@@ -13,7 +13,7 @@ export interface BasicQuizAnswers {
     // Define the system role - this sets how the AI should behave
     const systemRole = `You are a career guidance expert. Analyze the user's quiz answers and provide a detailed, 
     personalized career report. Suggest 3-5 suitable career paths with explanations for each recommendation. 
-    Format the response with clear headings and bullet points. Keep it professional yet encouraging.`;
+    Format the response with clear headings and bullet points. Keep it professional yet friendly.`;
   
     // Define the user role - this is the prompt that will be sent with the user's answers
     const userPrompt = `Based on these answers to career assessment questions, provide a personalized career report:
