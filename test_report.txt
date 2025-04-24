@@ -20,13 +20,13 @@ go away.[0m
 --------------------------|---------|----------|---------|---------|-------------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------|---------|----------|---------|---------|-------------------------
-All files                 |    11.5 |     8.66 |    5.31 |   11.46 |                         
+All files                 |   10.11 |      7.8 |     5.2 |   10.08 |                         
  src                      |   36.95 |       20 |      40 |   36.36 |                         
   App.tsx                 |   48.57 |    21.56 |      50 |   48.48 | 19,27-33,38,43-57,60,63 
   index.tsx               |       0 |      100 |     100 |       0 | 6-18                    
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10                    
- src/Components           |       5 |        0 |    1.19 |    5.17 |                         
-  BasicQuizPage.tsx       |     3.7 |        0 |       0 |    3.84 | 5-121                   
+ src/Components           |    4.26 |        0 |    1.16 |    4.41 |                         
+  BasicQuizPage.tsx       |    2.08 |        0 |       0 |    2.17 | 7-193                   
   ChineseBasicQuiz.tsx    |     3.7 |        0 |       0 |    3.84 | 5-121                   
   ChineseDetailedQuiz.tsx |    3.57 |        0 |       0 |     3.7 | 5-133                   
   ChineseHomeButtons.tsx  |       0 |      100 |       0 |       0 | 4-11                    
@@ -35,9 +35,10 @@ All files                 |    11.5 |     8.66 |    5.31 |   11.46 |
   SpanishBasicQuiz.tsx    |     3.7 |        0 |       0 |    3.84 | 5-121                   
   SpanishDetailedQuiz.tsx |    3.57 |        0 |       0 |     3.7 | 5-133                   
   SpanishHomeButtons.tsx  |       0 |      100 |       0 |       0 | 4-11                    
+  chatgpt.ts              |       0 |        0 |       0 |       0 | 14-56                   
 --------------------------|---------|----------|---------|---------|-------------------------
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        3.418 s
+Time:        3.481 s
 Ran all test suites.
