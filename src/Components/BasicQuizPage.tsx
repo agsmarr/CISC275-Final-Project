@@ -56,16 +56,17 @@ const BasicQuizPage = () => {
     window.location.hash = '/';
   };
 
+  //chatgpt integration part
   const [loading, setLoading] = useState(false);
   const [report, setReport] = useState('');
   const [showReport, setShowReport] = useState(false);
-
+  // Set up asynchronous communication with the GPT API to handle user interactions.
   const handleSubmit = async () => {
     if (!isAllAnswered) return;
     
     setLoading(true);
     try {
-      // Retrieve API key from local storage
+      
       const apiKey = localStorage.getItem('MYKEY');
       if (!apiKey) {
         alert('Please enter your OpenAI API key in the footer first.');
@@ -73,7 +74,6 @@ const BasicQuizPage = () => {
         return;
       }
 
-      // Prepare answers object
       const answers = {
         answer1,
         answer2,
@@ -84,7 +84,7 @@ const BasicQuizPage = () => {
         answer7
       };
 
-      // Generate the report
+      // Generate the report from chatgpt
       const generatedReport = await generateCareerReport(answers, apiKey.replace(/"/g, ''));
       setReport(generatedReport);
       setShowReport(true);
