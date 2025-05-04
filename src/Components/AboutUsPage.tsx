@@ -12,30 +12,42 @@ function AboutUs() {
           Home Page
         </Button>
     </header>
-    <div>
-        <div id = "Saieda-intro">
-            <div className = "picture-box">
-                <p>Saieda Ali Zada</p>
-                <a href = "mailto:saieda@udel.edu">saieda@udel.edu</a>
-            </div>
+    <body>
+        <div id = "about-us-message">
+            <h1 className = "about-header">About Us</h1>
+            <p>Our team has developed an assessment tool that helps users to make career decisions! 
+                Whether you're a high school student, college student, or a professional who's looking for a career change, our app can help you figure out the next steps in your career.
+                We strive to provide a fun and user-friendly experience that utilizes AI-generated responses to guide users towards careers that best fit their lifestyle and interests.
+                Navigate back to the home page to check out our basic and detailed career assessments or meet the developers below!</p>
         </div>
-        <div id = "Yaqing-intro">
-            <div className = "picture-box">
-                <p>Yaqing Jiang</p>
-                <a href = "mailto:yaqingj@udel.edu">yaqingj@udel.edu</a>
+        <h1 className = "about-header">Meet the Developers!</h1>
+        <div className = "intro-border">
+            <div className = "intro-box">
+                <div className = "picture-box">
+                    <p>Saieda Ali Zada</p>
+                    <a href = "mailto:saieda@udel.edu">saieda@udel.edu</a>
+                </div>
             </div>
         </div>
         <div className = "intro-border">
-            <div id = "Amanda-intro">
+            <div className = "intro-box">
                 <div className = "picture-box">
-                    <img src = {image3} alt = ""></img>
+                    <p>Yaqing Jiang</p>
+                    <a href = "mailto:yaqingj@udel.edu">yaqingj@udel.edu</a>
+                </div>
+            </div>
+        </div>
+        <div className = "intro-border">
+            <div className = "intro-box">
+                <div className = "picture-box">
+                    <img className = "images" src = {image3} alt = ""></img>
                     <p>Amanda Smarr</p>
                     <a href = "mailto:agsmarr@udel.edu">agsmarr@udel.edu</a>
                 </div>
-                <p className = "intros">Hi! I'm Amanda. I'm a sophomore at UD. I am a CS major with a cybersecurity concentration, and I currently work as an organizer for the HenHacks team.</p>
+                <p className = "intros">Hi! I'm Amanda, and I'm a sophomore at UD. I am a CS major with a cybersecurity concentration, and I currently work as an organizer for the HenHacks team!</p>
             </div>
         </div>
-    </div>
+    </body>
     </div>)
 }
 export default AboutUs
