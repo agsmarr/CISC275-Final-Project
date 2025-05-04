@@ -35,14 +35,14 @@
     box-shadow: 8px 8px 20px rgb(174, 174, 174);
 }
 .images {
-    width: 40%;
+    width: 50%;
     height: auto;
     border-radius: 10px;
     box-shadow: 8px 8px 20px rgb(174, 174, 174);
     margin-bottom: 30px;
 }
 .intros {
-    margin-top: 6%;
+    margin-top: 8%;
     margin-right: 3%;
 }
 body {

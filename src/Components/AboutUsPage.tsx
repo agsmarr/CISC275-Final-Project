@@ -1,6 +1,8 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
 import './AboutUsPage.css';
+import image1 from './ComponentImages/Saieda.jpg';
+import image2 from './ComponentImages/Yaqing.jpg';
 import image3 from './ComponentImages/Amanda.jpg';
 function AboutUs() {
     const goBackHome = () => {
@@ -24,17 +26,21 @@ function AboutUs() {
         <div className = "intro-border">
             <div className = "intro-box">
                 <div className = "picture-box">
+                <img className = "images" src = {image1} alt = ""></img>
                     <p>Saieda Ali Zada</p>
                     <a href = "mailto:saieda@udel.edu">saieda@udel.edu</a>
                 </div>
+                <p className = "intros">**Intro Message Here**</p>
             </div>
         </div>
         <div className = "intro-border">
             <div className = "intro-box">
                 <div className = "picture-box">
+                <img className = "images" src = {image2} alt = ""></img>
                     <p>Yaqing Jiang</p>
                     <a href = "mailto:yaqingj@udel.edu">yaqingj@udel.edu</a>
                 </div>
+                <p className = "intros">**Intro Message Here**</p>
             </div>
         </div>
         <div className = "intro-border">
@@ -44,7 +50,8 @@ function AboutUs() {
                     <p>Amanda Smarr</p>
                     <a href = "mailto:agsmarr@udel.edu">agsmarr@udel.edu</a>
                 </div>
-                <p className = "intros">Hi! I'm Amanda, and I'm a sophomore at UD. I am a CS major with a cybersecurity concentration, and I currently work as an organizer for the HenHacks team!</p>
+                <p className = "intros">Hi! I'm Amanda, and I'm a sophomore at UD. 
+                    I am a CS major with a cybersecurity concentration, and I currently work as an organizer for the HenHacks team!</p>
             </div>
         </div>
     </body>
