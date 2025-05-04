@@ -94,7 +94,7 @@ function App() {
       {/*Language dropdown only shows when on the home page*/}
       {route === "#/" &&
       <div className = "nav-bar">
-        <Button onClick = {goToAboutUsPage}>About Us</Button>
+        <Button id = "about-us" onClick = {goToAboutUsPage}>About Us</Button>
         <Form.Group id = "language-select">
           {language === 'english' ? <Form.Label id = "language-label">Language: </Form.Label> : 
           language === 'spanish' ? <Form.Label id = "language-label">El Idioma:</Form.Label>: 
@@ -108,7 +108,7 @@ function App() {
       </div>}
       {route === "" &&
       <div className = "nav-bar">
-        <Button>About Us</Button>
+        <Button id = "about-us" onClick = {goToAboutUsPage}>About Us</Button>
         <Form.Group id = "language-select">
           {language === 'english' ? <Form.Label id = "language-label">Language: </Form.Label> : 
           language === 'spanish' ? <Form.Label id = "language-label">El Idioma:</Form.Label>: 
