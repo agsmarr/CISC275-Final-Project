@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/CISC275-Final-Project/static/css/main.382c222f.css",
-    "main.js": "/CISC275-Final-Project/static/js/main.985f8870.js",
+    "main.css": "/CISC275-Final-Project/static/css/main.1ebacc76.css",
+    "main.js": "/CISC275-Final-Project/static/js/main.d5db80f5.js",
     "static/js/453.bad6c33a.chunk.js": "/CISC275-Final-Project/static/js/453.bad6c33a.chunk.js",
+    "static/media/Amanda.jpg": "/CISC275-Final-Project/static/media/Amanda.fca6190471c8eb224792.jpg",
+    "static/media/Saieda.jpg": "/CISC275-Final-Project/static/media/Saieda.15ceb9d571fd105dfb7f.jpg",
+    "static/media/Yaqing.jpg": "/CISC275-Final-Project/static/media/Yaqing.966c9fed97b8ad8c2aee.jpg",
     "static/media/Flower.jpg": "/CISC275-Final-Project/static/media/Flower.9bb5dbc21a7c95a7ca10.jpg",
     "index.html": "/CISC275-Final-Project/index.html",
-    "main.382c222f.css.map": "/CISC275-Final-Project/static/css/main.382c222f.css.map",
-    "main.985f8870.js.map": "/CISC275-Final-Project/static/js/main.985f8870.js.map",
+    "main.1ebacc76.css.map": "/CISC275-Final-Project/static/css/main.1ebacc76.css.map",
+    "main.d5db80f5.js.map": "/CISC275-Final-Project/static/js/main.d5db80f5.js.map",
     "453.bad6c33a.chunk.js.map": "/CISC275-Final-Project/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.382c222f.css",
-    "static/js/main.985f8870.js"
+    "static/css/main.1ebacc76.css",
+    "static/js/main.d5db80f5.js"
   ]
 }
