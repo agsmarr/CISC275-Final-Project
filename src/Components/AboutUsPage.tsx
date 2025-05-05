@@ -30,7 +30,9 @@ function AboutUs() {
                     <p>Saieda Ali Zada</p>
                     <a href = "mailto:saieda@udel.edu">saieda@udel.edu</a>
                 </div>
-                <p className = "intros">**Intro Message Here**</p>
+                <p className = "intros">I am Saieda, a junior in the CISC department at the University of Delaware.
+                    I enjoy playing volleyball, cooking, and painting.
+                </p>
             </div>
         </div>
         <div className = "intro-border">
@@ -40,7 +42,7 @@ function AboutUs() {
                     <p>Yaqing Jiang</p>
                     <a href = "mailto:yaqingj@udel.edu">yaqingj@udel.edu</a>
                 </div>
-                <p className = "intros">**Intro Message Here**</p>
+                <p className = "intros">I'm Yaqing. I'm a junior at UD. I like to ice skate, ski, and roller blade.</p>
             </div>
         </div>
         <div className = "intro-border">
@@ -50,7 +52,7 @@ function AboutUs() {
                     <p>Amanda Smarr</p>
                     <a href = "mailto:agsmarr@udel.edu">agsmarr@udel.edu</a>
                 </div>
-                <p className = "intros">Hi! I'm Amanda, and I'm a sophomore at UD. 
+                <p className = "intros">I'm Amanda, and I'm a sophomore at UD. 
                     I am a CS major with a cybersecurity concentration, and I currently work as an organizer for the HenHacks team!</p>
             </div>
         </div>

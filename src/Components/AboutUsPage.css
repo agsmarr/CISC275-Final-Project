@@ -25,6 +25,10 @@
     font-weight: bold;
     color: #5e81c5;
 }
+.picture-box {
+    margin-left: 10%;
+    margin-right: 8%;
+}
 .intro-border {
     background-color: #d2aae2;
     margin-top: 60px;
@@ -35,15 +39,15 @@
     box-shadow: 8px 8px 20px rgb(174, 174, 174);
 }
 .images {
-    width: 50%;
+    width: 200px;
     height: auto;
     border-radius: 10px;
     box-shadow: 8px 8px 20px rgb(174, 174, 174);
     margin-bottom: 30px;
 }
 .intros {
-    margin-top: 8%;
-    margin-right: 3%;
+    margin-top: 10%;
+    margin-right: 10%;
 }
 body {
     animation-name: fade-up;
