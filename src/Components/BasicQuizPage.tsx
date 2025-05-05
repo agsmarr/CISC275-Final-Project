@@ -169,7 +169,7 @@ const BasicQuizPage = () => {
             cursor: isAllAnswered ? 'pointer' : 'not-allowed',
           }}
         >
-          {loading ? 'Generating Report...' : 'Get Results!'}
+          {loading ? 'Please wait...' : 'Get Results!'}
         </Button>
 
         {showReport && (
@@ -180,7 +180,7 @@ const BasicQuizPage = () => {
             borderRadius: '5px',
             border: '1px solid #dee2e6'
           }}>
-            <h2>Personalized Career Report</h2>
+            <h2>Career Result Report</h2>
             <div style={{ 
               whiteSpace: 'pre-wrap',
               textAlign: 'left',
@@ -189,9 +189,14 @@ const BasicQuizPage = () => {
               {report}
             </div>
             <Button 
-              variant="secondary" 
-              onClick={() => setShowReport(false)}
-              style={{ marginTop: '15px' }}
+            variant="secondary" 
+            onClick={() => setShowReport(false)}
+            style={{ 
+              marginTop: '15px',
+              backgroundColor: 'purple',
+              borderColor: 'purple',
+              color: 'white'
+            }}
             >
               Close Report
             </Button>

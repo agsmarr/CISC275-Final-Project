@@ -1,32 +1,89 @@
-import React, {useState} from 'react';
-import { Button, Form ,ProgressBar} from 'react-bootstrap';
-import './DetailedQuizPage.css'
+import React, { useState } from 'react';
+import { Button, Form, ProgressBar } from 'react-bootstrap';
+import './DetailedQuizPage.css';
+import { generateDetailedCareerReport, getValidationRules, validateAnswer } from './chatgpt';
+
 const DetailedQuizPage = () => {
-  const [textAnswer1, setTextAnswer1] = useState('');
-  const [textAnswer2, setTextAnswer2] = useState('');
-  const [textAnswer3, setTextAnswer3] = useState('');
-  const [textAnswer4, setTextAnswer4] = useState('');
-  const [textAnswer5, setTextAnswer5] = useState('');
-  const [textAnswer6, setTextAnswer6] = useState('');
-  const [textAnswer7, setTextAnswer7] = useState('');
-  const [textAnswer8, setTextAnswer8] = useState('');
-  const textAnsweredCount = [
-    textAnswer1,
-    textAnswer2,
-    textAnswer3,
-    textAnswer4,
-    textAnswer5,
-    textAnswer6,
-    textAnswer7,
-    textAnswer8,
-  ].filter((a) => a.trim() !== '').length;
-  const textProgress = (textAnsweredCount / 8) * 100;
-  const textAnswers = [textAnswer1, textAnswer2, textAnswer3, textAnswer4, textAnswer5, textAnswer6, textAnswer7,textAnswer8];
-  const answeredCount = textAnswers.filter((a) => a.trim() !== '').length;
-  const isAllAnswered = answeredCount === textAnswers.length;
+  const [answers, setAnswers] = useState({
+    answer1: '',
+    answer2: '',
+    answer3: '',
+    answer4: '',
+    answer5: '',
+    answer6: '',
+    answer7: '',
+    answer8: '',
+  });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(false);
+  const [report, setReport] = useState('');
+  const [showReport, setShowReport] = useState(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
+
+  const handleChange = (fieldName: keyof typeof answers, value: string) => {
+    setAnswers(prev => ({ ...prev, [fieldName]: value }));
+    if (submitAttempted) {
+      const validation = validateAnswer(value, fieldName);
+      setErrors(prev => ({ ...prev, [fieldName]: validation.isValid ? '' : validation.message }));
+    }
+  };
+
+  const handleBlur = (fieldName: keyof typeof answers) => {
+    const validation = validateAnswer(answers[fieldName], fieldName);
+    setErrors(prev => ({ ...prev, [fieldName]: validation.isValid ? '' : validation.message }));
+  };
+
+  const validateAll = () => {
+    const newErrors: Record<string, string> = {};
+    let isValid = true;
+
+    (Object.keys(answers) as Array<keyof typeof answers>).forEach((key) => {
+      const validation = validateAnswer(answers[key], key);
+      if (!validation.isValid) {
+        newErrors[key] = validation.message;
+        isValid = false;
+      }
+    });
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const answeredCount = Object.values(answers).filter(a => a.trim() !== '').length;
+  const progress = (answeredCount / 8) * 100;
+  const isAllAnswered = answeredCount === 8;
+
+  const handleSubmit = async () => {
+    setSubmitAttempted(true);
+    const isValid = validateAll();
+
+    if (!isValid || !isAllAnswered) return;
+
+    setLoading(true);
+    try {
+      const apiKey = localStorage.getItem('MYKEY');
+      if (!apiKey) {
+        alert('Please enter your OpenAI API key in the footer first.');
+        return;
+      }
+
+      const generatedReport = await generateDetailedCareerReport(answers, apiKey.replace(/"/g, ''));
+      setReport(generatedReport);
+      setShowReport(true);
+    } catch (error) {
+      console.error('Error:', error);
+      setReport('Failed to generate report. Please try again.');
+      setShowReport(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const goBackHome = () => {
     window.location.hash = '/';
   };
+
   return (
     <div>
       <header>
@@ -34,106 +91,69 @@ const DetailedQuizPage = () => {
           Home Page
         </Button>
       </header>
-      <h1 id = "detailed-header">Detailed Questions Quiz</h1>
+      <h1 id="detailed-header">Detailed Questions Quiz</h1>
       <div className="sticky-progress-bar">
-        <ProgressBar now={textProgress} variant="info" label={`${Math.round(textProgress)}%`} />
+        <ProgressBar now={progress} variant="info" label={`${Math.round(progress)}%`} />
       </div>
-      <div className = "question-box">
-      <Form>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Question 1</h2>
-        <Form.Group className="questions" controlId="q1">
-          <Form.Label>Do you like to commute to work? If yes, how far?</Form.Label>
-          <Form.Control
-            type="text"
-            value={textAnswer1}
-            onChange={(e) => setTextAnswer1(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Question 2</h2>
-        <Form.Group className="questions" controlId="q2">
-          <Form.Label>What do you do in your leisure time?</Form.Label>
-          <Form.Control
-            type="text"
-            value={textAnswer2}
-            onChange={(e) => setTextAnswer2(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Question 3</h2>
-        <Form.Group className="questions" controlId="q3">
-          <Form.Label>What activities interests you? Why?</Form.Label>
-          <Form.Control
-           type="text"
-           value={textAnswer3}
-           onChange={(e) => setTextAnswer3(e.target.value)}
-           />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Question 4</h2>
-        <Form.Group className="questions" controlId="q4">
-          <Form.Label>What are your favorite classes and why?</Form.Label>
-          <Form.Control
-           type="text"
-          value={textAnswer4}
-          onChange={(e) => setTextAnswer4(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Question 5</h2>
-        <Form.Group className="questions" controlId="q5">
-          <Form.Label>What are your soft and hard skills?</Form.Label>
-          <Form.Control
-          type="text"
-          value={textAnswer5}
-          onChange={(e) => setTextAnswer5(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Question 6</h2>
-        <Form.Group className="questions" controlId="q6">
-          <Form.Label>What are the three top characteristics you want to have in your work environment?</Form.Label>
-          <Form.Control
-            type="text"
-            value={textAnswer6}
-            onChange={(e) => setTextAnswer6(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Question 7</h2>
-        <Form.Group className="questions" controlId="q7">
-          <Form.Label>How important is job salary compared to job satisfaction when choosing a career?</Form.Label>
-          <Form.Control
-           type="text"
-           value={textAnswer7}
-           onChange={(e) => setTextAnswer7(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Question 8</h2>
-        <Form.Group className="questions" controlId="q8">
-         <Form.Label>Do you see yourself in a leadership role or would you rather specialize in a specific skill?</Form.Label>
-          <Form.Control
-            type="text"
-            value={textAnswer8}
-            onChange={(e) => setTextAnswer8(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-      </Form>
-      <Button
-        id="Submit-Button"onClick={() => alert("Results submitted!")}disabled={!isAllAnswered}
-        style={{backgroundColor: isAllAnswered ? 'purple' : 'grey',cursor: isAllAnswered ? 'pointer' : 'not-allowed',}}>
-          Get Results!
-      </Button>
+      <div className="question-box">
+        <Form>
+          {[
+            { id: 'q1', label: 'Do you like to commute to work? If yes, how far?', field: 'answer1' },
+            { id: 'q2', label: 'What do you do in your leisure time?', field: 'answer2' },
+            { id: 'q3', label: 'What activities interest you? Why?', field: 'answer3' },
+            { id: 'q4', label: 'What are your favorite classes and why?', field: 'answer4' },
+            { id: 'q5', label: 'What are your soft and hard skills?', field: 'answer5' },
+            { id: 'q6', label: 'What are the three top characteristics you want in your work environment?', field: 'answer6' },
+            { id: 'q7', label: 'How important is job salary compared to job satisfaction?', field: 'answer7' },
+            { id: 'q8', label: 'Do you see yourself in a leadership role or would you rather specialize?', field: 'answer8' },
+          ].map((q, index) => (
+            <div className="question-boxes" key={q.id}>
+              <h2 className="question-headers">Question {index + 1}</h2>
+              <Form.Group controlId={q.id}>
+                <Form.Label>{q.label}</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  value={answers[q.field as keyof typeof answers]}
+                  onChange={(e) => handleChange(q.field as keyof typeof answers, e.target.value)}
+                  onBlur={() => handleBlur(q.field as keyof typeof answers)}
+                  isInvalid={!!errors[q.field]}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors[q.field]}
+                </Form.Control.Feedback>
+                <Form.Text className="text-muted">
+                  {`Minimum ${getValidationRules(q.field as keyof typeof answers).min} characters required`}
+                </Form.Text>
+              </Form.Group>
+            </div>
+          ))}
+        </Form>
+
+        <Button
+          id="Submit-Button"
+          onClick={handleSubmit}
+          disabled={!isAllAnswered || loading || Object.values(errors).some(e => e)}
+          className="submit-btn"
+        >
+          {loading ? 'Generating Report...' : 'Get Results!'}
+        </Button>
+
+        {showReport && (
+          <div className="report-section">
+            <h2>Personalized Career Report</h2>
+            <div className="report-content">
+              {report}
+            </div>
+            <Button
+              className="submit-btn"
+              onClick={() => setShowReport(false)}
+              style={{ marginTop: '15px' }}
+            >
+              Close Report
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
