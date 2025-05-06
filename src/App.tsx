@@ -13,6 +13,7 @@ import ChineseBasicQuiz from './Components/ChineseBasicQuiz';
 import ChineseDetailedQuiz from './Components/ChineseDetailedQuiz';
 import AboutUs from './Components/AboutUsPage';
 import SpanishAboutUs from './Components/SpanishAboutUsPage';
+import ChineseAboutUs from './Components/ChineseAboutUsPage';
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -55,6 +56,9 @@ function App() {
       case '#/about-us':
         if (language === 'spanish') {
           return <SpanishAboutUs></SpanishAboutUs>
+        }
+        if (language === 'chinese') {
+          return <ChineseAboutUs></ChineseAboutUs>
         }
         else {
         return <AboutUs></AboutUs>;
@@ -100,7 +104,7 @@ function App() {
       {/*Language dropdown only shows when on the home page*/}
       {route === "#/" &&
       <div className = "nav-bar">
-        {language === 'spanish' ? <Button id = "about-us" onClick = {goToAboutUsPage}>Sobre Nosotras</Button> : language === 'chinese' ? <Button id = "about-us">关于我们</Button>: <Button id = "about-us" onClick = {goToAboutUsPage}>About Us</Button>}
+        {language === 'spanish' ? <Button id = "about-us" onClick = {goToAboutUsPage}>Sobre Nosotras</Button> : language === 'chinese' ? <Button id = "about-us" onClick = {goToAboutUsPage}>关于我们</Button>: <Button id = "about-us" onClick = {goToAboutUsPage}>About Us</Button>}
         <Form.Group id = "language-select">
           {language === 'english' ? <Form.Label id = "language-label">Language: </Form.Label> : 
           language === 'spanish' ? <Form.Label id = "language-label">El Idioma:</Form.Label>: 
@@ -114,7 +118,7 @@ function App() {
       </div>}
       {route === "" &&
       <div className = "nav-bar">
-        {language === 'spanish' ? <Button id = "about-us" onClick = {goToAboutUsPage}>Sobre Nosotras</Button> : language === 'chinese' ? <Button id = "about-us">关于我们</Button>: <Button id = "about-us" onClick = {goToAboutUsPage}>About Us</Button>}
+        {language === 'spanish' ? <Button id = "about-us" onClick = {goToAboutUsPage}>Sobre Nosotras</Button> : language === 'chinese' ? <Button id = "about-us" onClick = {goToAboutUsPage}>关于我们</Button>: <Button id = "about-us" onClick = {goToAboutUsPage}>About Us</Button>}
         <Form.Group id = "language-select">
           {language === 'english' ? <Form.Label id = "language-label">Language: </Form.Label> : 
           language === 'spanish' ? <Form.Label id = "language-label">El Idioma:</Form.Label>: 
