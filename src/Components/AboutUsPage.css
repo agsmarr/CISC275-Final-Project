@@ -18,6 +18,7 @@
 }
 .intro-box {
     display: inline-flex;
+    width: 98%;
     padding: 20px;
     border-radius: 10px;
     background-color: #f3f2f1;
@@ -27,7 +28,7 @@
 }
 .picture-box {
     margin-left: 10%;
-    margin-right: 8%;
+    margin-right: 10%;
 }
 .intro-border {
     background-color: #d2aae2;
