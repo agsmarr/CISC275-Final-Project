@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './BasicQuizPage.css';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import { generateCareerReport } from './chatgpt';
+import {LoadingScreen} from './LoadingScreen';
 
 const BasicQuizPage = () => {
   const[answer1, setAnswer1] = useState<string[]>([]);
@@ -169,9 +170,9 @@ const BasicQuizPage = () => {
             cursor: isAllAnswered ? 'pointer' : 'not-allowed',
           }}
         >
-          {loading ? 'Generating Report...' : 'Get Results!'}
+          Get Results!
         </Button>
-
+        {loading && <div><LoadingScreen></LoadingScreen></div>}
         {showReport && (
           <div className="report-section" style={{ 
             marginTop: '20px',
