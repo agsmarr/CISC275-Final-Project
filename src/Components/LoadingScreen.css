@@ -1,9 +1,22 @@
 #loading-box {
     background-color: #9fbcf6;
     box-shadow: 8px 8px 20px #557bc7;
-    padding: 20px;
-    border-radius: 10px;
+    border-radius: 30px;
     color: #fcf8f5;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 5%;
+}
+#flower-image {
+    width: 50%;
+    height: auto;
+    animation: spin 3s linear infinite;
+    margin-bottom: 45px;
 }
 #loading-message::after {
     content: '';
@@ -15,4 +28,11 @@
     50% {content: '..';}
     75% {content: '...';}
     100% {content:'';}
+}
+@keyframes spin {
+    0% {transform: rotate(0deg)}
+    25% {transform: rotate(40deg)}
+    50% {transform: rotate(0deg)}
+    75% {transform: rotate(-40deg)}
+    100% {transform: rotate(0)}
 }
