@@ -103,6 +103,9 @@ const BasicQuizPage = () => {
   
   return (
     <div>
+      {/*If loading is true, loading screen will show
+        If report is generated, the report will show
+        The quiz will show if loading is false & showReport is false */}
         {loading ? <LoadingScreen></LoadingScreen> : !showReport ? 
         <div>
         <header>
@@ -183,6 +186,7 @@ const BasicQuizPage = () => {
           <div className = "report-border">
             <div className="report-section">
               <div className = "report-text">
+                {/* Report below */}
               <h2 id = "report-header">Personalized Career Report</h2>
               <div style={{ 
                 whiteSpace: 'pre-wrap',
@@ -193,11 +197,13 @@ const BasicQuizPage = () => {
               </div>
               </div>
               <div className = "report-buttons">
+                {/*Home Page Button*/}
               <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
                 onClick={() => goBackHome()}
               >
                 Back to Home Page
               </Button>
+              {/*Detailed Quiz Page Button*/}
               <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
                 onClick={() => gotoDetailed()}>
                 Detailed Quiz Page
