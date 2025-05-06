@@ -56,6 +56,9 @@ const BasicQuizPage = () => {
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  const gotoDetailed = () => {
+    window.location.hash = '/detailed-quiz';
+  }
 
   //chatgpt integration part
   const [loading, setLoading] = useState(false);
@@ -100,7 +103,10 @@ const BasicQuizPage = () => {
   
   return (
     <div>
-        {loading ? <LoadingScreen></LoadingScreen> : 
+      {/*If loading is true, loading screen will show
+        If report is generated, the report will show
+        The quiz will show if loading is false & showReport is false */}
+        {loading ? <LoadingScreen></LoadingScreen> : !showReport ? 
         <div>
         <header>
             <Button variant="secondary" id="home-button" onClick={goBackHome}>
@@ -175,34 +181,38 @@ const BasicQuizPage = () => {
             Get Results!
           </Button>
          </div>
-         </div>}
-        {showReport && (
-          <div className="report-section" style={{ 
-            marginTop: '20px',
-            padding: '20px',
-            backgroundColor: '#f8f9fa',
-            borderRadius: '5px',
-            border: '1px solid #dee2e6'
-          }}>
-            <h2>Personalized Career Report</h2>
-            <div style={{ 
-              whiteSpace: 'pre-wrap',
-              textAlign: 'left',
-              marginTop: '15px'
-            }}>
-              {report}
+         </div> :
+        (
+          <div className = "report-border">
+            <div className="report-section">
+              <div className = "report-text">
+                {/* Report below */}
+              <h2 id = "report-header">Personalized Career Report</h2>
+              <div style={{ 
+                whiteSpace: 'pre-wrap',
+                textAlign: 'left',
+                marginTop: '15px'
+              }}>
+                {report}
+              </div>
+              </div>
+              <div className = "report-buttons">
+                {/*Home Page Button*/}
+              <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+                onClick={() => goBackHome()}
+              >
+                Back to Home Page
+              </Button>
+              {/*Detailed Quiz Page Button*/}
+              <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+                onClick={() => gotoDetailed()}>
+                Detailed Quiz Page
+              </Button>
+              </div>
             </div>
-            <Button 
-              variant="secondary" 
-              onClick={() => setShowReport(false)}
-              style={{ marginTop: '15px' }}
-            >
-              Close Report
-            </Button>
           </div>
         )}
       </div>
   );
 };
-
 export default BasicQuizPage;
