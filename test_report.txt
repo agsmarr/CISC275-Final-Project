@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
-  ✓ renders learn react link (47 ms)
+  ✓ renders learn react link (46 ms)
 
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
@@ -20,14 +20,14 @@ go away.[0m
 --------------------------|---------|----------|---------|---------|----------------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s          
 --------------------------|---------|----------|---------|---------|----------------------------
-All files                 |   10.22 |     7.74 |       5 |   10.19 |                            
+All files                 |   10.11 |     7.74 |     4.9 |   10.07 |                            
  src                      |   36.73 |    19.64 |   36.36 |   36.17 |                            
   App.tsx                 |   47.36 |    21.15 |   44.44 |   47.22 | 20,28-34,39,42,47-63,66,69 
   index.tsx               |       0 |      100 |     100 |       0 | 6-18                       
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10                       
- src/Components           |    4.18 |        0 |    1.12 |    4.32 |                            
+ src/Components           |    4.12 |        0 |    1.09 |    4.26 |                            
   AboutUsPage.tsx         |       0 |      100 |       0 |       0 | 8-11                       
-  BasicQuizPage.tsx       |    2.08 |        0 |       0 |    2.17 | 8-197                      
+  BasicQuizPage.tsx       |    1.96 |        0 |       0 |    2.04 | 8-208                      
   ChineseBasicQuiz.tsx    |     3.7 |        0 |       0 |    3.84 | 5-121                      
   ChineseDetailedQuiz.tsx |    3.57 |        0 |       0 |     3.7 | 5-133                      
   ChineseHomeButtons.tsx  |       0 |      100 |       0 |       0 | 4-11                       
@@ -42,5 +42,5 @@ All files                 |   10.22 |     7.74 |       5 |   10.19 |
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        3.697 s
+Time:        3.641 s
 Ran all test suites.
