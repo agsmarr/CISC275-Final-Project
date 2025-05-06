@@ -56,6 +56,9 @@ const BasicQuizPage = () => {
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  const gotoDetailed = () => {
+    window.location.hash = '/detailed-quiz';
+  }
 
   //chatgpt integration part
   const [loading, setLoading] = useState(false);
@@ -177,28 +180,30 @@ const BasicQuizPage = () => {
          </div>
          </div> :
         (
-          <div className="report-section" style={{ 
-            marginTop: '20px',
-            padding: '20px',
-            backgroundColor: '#f8f9fa',
-            borderRadius: '5px',
-            border: '1px solid #dee2e6'
-          }}>
-            <h2>Personalized Career Report</h2>
-            <div style={{ 
-              whiteSpace: 'pre-wrap',
-              textAlign: 'left',
-              marginTop: '15px'
-            }}>
-              {report}
+          <div className = "report-border">
+            <div className="report-section">
+              <div className = "report-text">
+              <h2 id = "report-header">Personalized Career Report</h2>
+              <div style={{ 
+                whiteSpace: 'pre-wrap',
+                textAlign: 'left',
+                marginTop: '15px'
+              }}>
+                {report}
+              </div>
+              </div>
+              <div className = "report-buttons">
+              <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+                onClick={() => goBackHome()}
+              >
+                Back to Home Page
+              </Button>
+              <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+                onClick={() => gotoDetailed()}>
+                Detailed Quiz Page
+              </Button>
+              </div>
             </div>
-            <Button 
-              variant="secondary" 
-              onClick={() => setShowReport(false)}
-              style={{ marginTop: '15px' }}
-            >
-              Close Report
-            </Button>
           </div>
         )}
       </div>
