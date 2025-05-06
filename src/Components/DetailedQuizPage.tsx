@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import './DetailedQuizPage.css';
-import { generateDetailedCareerReport, getValidationRules, validateAnswer } from './chatgpt';
+import { generateDetailedCareerReport, validateAnswer } from './chatgpt';
 
 const DetailedQuizPage = () => {
   const [answers, setAnswers] = useState({
@@ -122,9 +122,6 @@ const DetailedQuizPage = () => {
                 <Form.Control.Feedback type="invalid">
                   {errors[q.field]}
                 </Form.Control.Feedback>
-                <Form.Text className="text-muted">
-                  {`Minimum ${getValidationRules(q.field as keyof typeof answers).min} characters required`}
-                </Form.Text>
               </Form.Group>
             </div>
           ))}
