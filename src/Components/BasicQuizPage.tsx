@@ -100,7 +100,7 @@ const BasicQuizPage = () => {
   
   return (
     <div>
-        {loading ? <LoadingScreen></LoadingScreen> : 
+        {loading ? <LoadingScreen></LoadingScreen> : !showReport ? 
         <div>
         <header>
             <Button variant="secondary" id="home-button" onClick={goBackHome}>
@@ -175,8 +175,8 @@ const BasicQuizPage = () => {
             Get Results!
           </Button>
          </div>
-         </div>}
-        {showReport && (
+         </div> :
+        (
           <div className="report-section" style={{ 
             marginTop: '20px',
             padding: '20px',
@@ -204,5 +204,4 @@ const BasicQuizPage = () => {
       </div>
   );
 };
-
 export default BasicQuizPage;
