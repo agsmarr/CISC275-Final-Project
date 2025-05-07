@@ -103,4 +103,32 @@ header {
    background-color: white; 
    padding: 10px 0; 
  }
+ .report-section {
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   font-weight: bold;
+   color: #557bc7;
+   margin-top: 20px;
+   padding: 20px;
+   background-color: #f8f9fa;
+   border-radius: 10px;
+ }
+ .report-text {
+   font-size: 20px;
+ }
+ .report-border {
+   background-color: #d2aae2;
+   padding: 2%;
+   margin: 2%;
+}
+#report-header {
+   font-weight: bold;
+   color: #557bc7;
+}
+.report-buttons {
+   margin-top: 30px;
+   display: flex;
+   height: 60px;
+   justify-content: space-evenly;
+   margin-bottom: 40px;
+}
  

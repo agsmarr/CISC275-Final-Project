@@ -1,0 +1,68 @@
+#about-us-message {
+    margin-left: 5%;
+    margin-right: 5%;
+    font-weight: bold;
+    margin-bottom: 60px;
+    color: #ac73c3;
+}
+.about-header {
+    background-color: #9fbcf6;
+    box-shadow: 8px 8px 20px #557bc7;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    padding: 10px;
+    color: #f8f9fa;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.intro-box {
+    display: inline-flex;
+    width: 98%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f3f2f1;
+    box-shadow: 8px 8px 20px #af67cb;
+    font-weight: bold;
+    color: #5e81c5;
+}
+.picture-box {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.intro-border {
+    background-color: #d2aae2;
+    margin-top: 60px;
+    padding: 25px;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 10px;
+    box-shadow: 8px 8px 20px rgb(174, 174, 174);
+}
+.images {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 8px 8px 20px rgb(174, 174, 174);
+    margin-bottom: 30px;
+}
+.intros {
+    margin-top: 10%;
+    margin-right: 10%;
+}
+body {
+    animation-name: fade-up;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+}
+@keyframes fade-up {
+    0% {
+      opacity: 0.6;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+  }
+}
