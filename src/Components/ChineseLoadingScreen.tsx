@@ -2,7 +2,7 @@ import React from 'react';
 import './LoadingScreen.css'
 import flower from './ComponentImages/FlowerLogo.jpg'
 
-export function LoadingScreen() {
+export function ChineseLoadingScreen() {
     return (
     <div>
         <div id = "loading-box">

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './BasicQuizPage.css';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import { generateSpanishCareerReport } from './chatgpt';
-
+import {SpanishLoadingScreen} from './SpanishLoadingScreen';
 
 const SpanishBasicQuiz = () => {
   const [answer1, setAnswer1] = useState<string[]>([]);
@@ -87,6 +87,11 @@ const SpanishBasicQuiz = () => {
 
   return (
     <div>
+      {/*If loading is true, loading screen will show
+        If report is generated, the report will show
+        The quiz will show if loading is false & showReport is false */}
+        {loading ? <SpanishLoadingScreen></SpanishLoadingScreen> : !showReport ?
+      <div>
       <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
           Página de Inicio
@@ -152,50 +157,36 @@ const SpanishBasicQuiz = () => {
           <Form.Check type="radio" label="Ayudar a la comunidad" value="Ayudar a la comunidad" onChange={updateAnswer7} checked={answer7 === "Ayudar a la comunidad"} />
           <Form.Check type="radio" label="Hacer lo que amas" value="Hacer lo que amas" onChange={updateAnswer7} checked={answer7 === "Hacer lo que amas"} />
         </div>
-
-        <Button
-          id="Submit-Button"
-          onClick={handleSubmit}
-          disabled={!isAllAnswered || loading}
-          style={{
-            backgroundColor: isAllAnswered ? 'purple' : 'grey',
-            cursor: isAllAnswered ? 'pointer' : 'not-allowed'
-          }}
-        >
-          {loading ? 'Generando Informe...' : '¡Obtenga Resultados!'}
-        </Button>
-
-        {showReport && (
-          <div className="report-section" style={{
-            marginTop: '20px',
-            padding: '20px',
-            backgroundColor: '#f8f9fa',
-            borderRadius: '5px',
-            border: '1px solid #dee2e6'
-          }}>
-            <h2>Informe de Orientación Profesional</h2>
-            <div style={{
-              whiteSpace: 'pre-wrap',
-              textAlign: 'left',
-              marginTop: '15px'
-            }}>
-              {report}
-            </div>
-            <Button
-              variant="secondary"
-              onClick={() => setShowReport(false)}
-              style={{
-                marginTop: '15px',
-                backgroundColor: 'purple',
-                borderColor: 'purple',
-                color: 'white'
-              }}
-            >
-              Cerrar Informe
-            </Button>
+          <Button
+            id="Submit-Button"
+            onClick={handleSubmit}
+            disabled={!isAllAnswered || loading}
+            style={{
+              backgroundColor: isAllAnswered ? 'purple' : 'grey',
+              cursor: isAllAnswered ? 'pointer' : 'not-allowed',
+            }}
+          >
+            ¡Obtenga resultados!
+          </Button>
+        </div> 
+        </div>:
+        (
+          <div className = "report-border">
+            <div className="report-section">
+              <div className = "report-text">
+                {/* Report below */}
+              <h2 id = "report-header">Informe de carrera personalizado</h2>
+              <div style={{ 
+                whiteSpace: 'pre-wrap',
+                textAlign: 'left',
+                marginTop: '15px'
+              }}>
+                {report}
+              </div>
+              </div>
+          </div>
           </div>
         )}
-      </div>
     </div>
   );
 };
