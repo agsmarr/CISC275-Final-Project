@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
-  ✓ renders learn react link (49 ms)
+  ✓ renders learn react link (45 ms)
 
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
@@ -20,9 +20,9 @@ go away.[0m
 --------------------------|---------|----------|---------|---------|--------------------------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                    
 --------------------------|---------|----------|---------|---------|--------------------------------------
-All files                 |    5.88 |     4.64 |    3.75 |    6.11 |                                      
- src                      |   33.96 |    19.11 |   36.36 |   33.33 |                                      
-  App.tsx                 |   42.85 |    20.31 |   44.44 |    42.5 | 22,30-36,41,44,49-73,76,79           
+All files                 |    6.04 |     5.31 |    4.47 |    6.28 |                                      
+ src                      |   34.54 |    21.42 |   41.66 |   33.96 |                                      
+  App.tsx                 |   43.18 |    22.72 |      50 |   42.85 | 22,30-36,43-44,47,53-77,80,83        
   index.tsx               |       0 |      100 |     100 |       0 | 6-18                                 
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10                                 
  src/Components           |    2.85 |        0 |    0.81 |    3.07 |                                      
@@ -44,5 +44,5 @@ All files                 |    5.88 |     4.64 |    3.75 |    6.11 |
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        4.044 s
+Time:        3.841 s
 Ran all test suites.
