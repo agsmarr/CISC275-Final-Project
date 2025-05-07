@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import './DetailedQuizPage.css';
 import { generateDetailedCareerReport, validateAnswer } from './chatgpt';
+import {LoadingScreen} from './LoadingScreen';
 
 const DetailedQuizPage = () => {
   const [answers, setAnswers] = useState({
@@ -92,6 +93,11 @@ const DetailedQuizPage = () => {
 
   return (
     <div>
+      {/*If loading is true, loading screen will show
+        If report is generated, the report will show
+        The quiz will show if loading is false & showReport is false */}
+      {loading ? <LoadingScreen></LoadingScreen> : !showReport ?
+      <div>
       <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
           Home Page
@@ -139,27 +145,27 @@ const DetailedQuizPage = () => {
           disabled={!isAllAnswered || loading || Object.values(errors).some(e => e)}
           className="submit-btn"
         >
-          {loading ? 'Generating Report...' : 'Get Results!'}
+          Get Results!  
         </Button>
-
-        {showReport && (
-          <div className="report-section">
-            <h2>Personalized Career Report</h2>
-            <div className="report-content">
-              {report}
+        </div> 
+        </div> :
+        (
+          <div className = "report-border">
+            <div className="report-section">
+              <div className = "report-text">
+                <h2>Personalized Career Report</h2>
+                <div style={{ 
+                whiteSpace: 'pre-wrap',
+                textAlign: 'left',
+                marginTop: '15px'
+              }}>
+                {report}
+                </div>
+              </div>
             </div>
-            <Button
-              className="submit-btn"
-              onClick={() => setShowReport(false)}
-              style={{ marginTop: '15px' }}
-            >
-              Close Report
-            </Button>
           </div>
         )}
-      </div>
-    </div>
-  );
+      </div>);
 };
 
 export default DetailedQuizPage;
