@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, ProgressBar, Spinner } from 'react-bootstrap';
+import { Button, Form, ProgressBar } from 'react-bootstrap';
 import './DetailedQuizPage.css';
 import { generateChineseDetailedCareerReport, validateChineseAnswer} from './chatgpt';
 
