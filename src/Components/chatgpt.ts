@@ -1,3 +1,48 @@
+//ChineseDetailedQuiz 
+export async function generateChineseDetailedCareerReport(answers: string[], apiKey: string): Promise<string> {
+  const systemRole = `你是一位职业规划专家。请根据用户在职业评估问卷中用中文提交的详细回答，生成一份个性化的职业报告。
+请提供3-5个适合的职业方向，并为每一个方向给出详细说明。风格应当专业而友好，结合用户的所有回答内容，提出有针对性的建议，并用清晰的标题格式呈现。`;
+
+  const userPrompt = `以下是用户对详细职业测验问题的回答，请分析这些回答并生成一份中文职业规划报告：
+
+1. 通勤偏好：${answers[0]}
+2. 闲暇活动：${answers[1]}
+3. 感兴趣的活动及原因：${answers[2]}
+4. 喜爱的课程及原因：${answers[3]}
+5. 拥有的软技能和硬技能：${answers[4]}
+6. 希望的工作环境特点：${answers[5]}
+7. 对薪资与满意度的重视程度：${answers[6]}
+8. 领导倾向还是专精倾向：${answers[7]}
+
+请根据以上回答，给出3-5个适合的职业建议，每个建议配上详细解释，并整体以中文撰写。`;
+
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-4',
+        messages: [
+          { role: 'system', content: systemRole },
+          { role: 'user', content: userPrompt }
+        ],
+        temperature: 0.7
+      })
+    });
+
+    if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
+    const data = await response.json();
+    return data.choices[0]?.message?.content || '未能生成职业报告';
+  } catch (error) {
+    console.error('生成职业报告出错:', error);
+    return '生成职业报告失败，请稍后再试。';
+  }
+}
+
+
 // DetailedQuiz Page
 export interface DetailedQuizAnswers {
   answer1: string;
@@ -48,7 +93,7 @@ export async function generateDetailedCareerReport(answers: DetailedQuizAnswers,
   const systemRole = `You are a career guidance expert. Analyze the user's detailed quiz answers and provide a comprehensive, 
   personalized career report. Suggest 3-5 suitable career paths with detailed explanations for each recommendation, 
   considering all aspects of their responses. Format the response with clear headings. 
-  Keep it professional yet friendly, and provide specific insights based on their answers.`;
+  Keep it professional yet friendly so it seems responsive and natural, and provide specific insights based on their answers.`;
 
   const userPrompt = `Based on these detailed answers to career assessment questions, provide an in-depth career report:
   
@@ -103,7 +148,7 @@ export interface BasicQuizAnswers {
 export async function generateCareerReport(answers: BasicQuizAnswers, apiKey: string): Promise<string> {
   const systemRole = `You are a career guidance expert. Analyze the user's quiz answers and provide a basic, 
   personalized career report. Suggest 3 suitable career paths with explanations for each recommendation. 
-  Format the response with clear headings. Please keep it professional yet friendly.`;
+  Format the response with clear headings. Please keep it professional yet friendly so it seems responsive and natural.`;
 
   const userPrompt = `Based on these answers to career assessment questions, provide a personalized career report:
   
