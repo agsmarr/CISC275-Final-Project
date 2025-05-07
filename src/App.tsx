@@ -36,13 +36,17 @@ function App() {
     setKey(event.target.value);
   }
   //language selection
-  const [language, setLanguage] = useState<string>("english");
+  const [language, setLanguage] = useState<string>(() => {
+    return localStorage.getItem("language") || "english";
+  });
     function changeLanguage(event: React.ChangeEvent<HTMLSelectElement>) {
         setLanguage(event.target.value);
+        localStorage.setItem("language", event.target.value);
     }
   const goToAboutUsPage = () => {
     window.location.hash = '/about-us';
   }
+  
   function renderPage() {
     switch (route) {
       case "#/basic-quiz":
