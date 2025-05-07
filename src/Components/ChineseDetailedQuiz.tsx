@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import './DetailedQuizPage.css';
 import { generateChineseDetailedCareerReport, validateChineseAnswer} from './chatgpt';
-
+import { ChineseLoadingScreen } from './ChineseLoadingScreen';
 
 const ChineseDetailedQuiz = () => {
   const [textAnswers, setTextAnswers] = useState(Array(8).fill(''));
@@ -100,6 +100,11 @@ const ChineseDetailedQuiz = () => {
 
   return (
     <div>
+      {/*If loading is true, loading screen will show
+              If report is generated, the report will show
+              The quiz will show if loading is false & showReport is false */}
+      {loading ? <ChineseLoadingScreen></ChineseLoadingScreen> : !showReport ? 
+      <div>
       <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
           主页
@@ -146,14 +151,24 @@ const ChineseDetailedQuiz = () => {
             marginTop: '15px',
           }}
         >
-          {loading ? '正在生成报告…' : '获得结果！'}
+          获得结果！
         </Button>
-
-        {showReport && (
-          <div className="report-section">
-            <h2>个性化职业报告</h2>
-            <div className="report-content" style={{ whiteSpace: 'pre-line' }}>
+        </div>
+        </div> :
+        (
+          <div className = "report-border">
+            <div className="report-section">
+              <div className = "report-text"></div>
+              {/* Report below */}
+            <h2 id = "report-header">职业规划报告</h2>
+            <div style={{
+              whiteSpace: 'pre-wrap',
+              textAlign: 'left',
+              marginTop: '15px'
+            }}>
               {report}
+          </div>
+          </div>
             </div>
             <div className = "report-buttons">
             {/*Home Page Button*/}
@@ -171,7 +186,6 @@ const ChineseDetailedQuiz = () => {
           </div>
         )}
       </div>
-    </div>
   );
 };
 

@@ -11,7 +11,7 @@ function ChineseAboutUs() {
     return (<div>
     <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
-        Página de inicio
+        主页
         </Button>
     </header>
     <body>

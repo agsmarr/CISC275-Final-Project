@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import './DetailedQuizPage.css';
 import { validateSpanishAnswer, generateSpanishDetailedCareerReport } from './chatgpt';
+import { SpanishLoadingScreen } from './SpanishLoadingScreen';
 
 const SpanishDetailedQuiz = () => {
   const [answers, setAnswers] = useState<string[]>(Array(8).fill(''));
@@ -94,6 +95,11 @@ const SpanishDetailedQuiz = () => {
 
   return (
     <div>
+      {/*If loading is true, loading screen will show
+        If report is generated, the report will show
+        The quiz will show if loading is false & showReport is false */}
+      {loading ? <SpanishLoadingScreen></SpanishLoadingScreen> : !showReport ?
+      <div>   
       <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
           Página de Inicio
@@ -132,15 +138,23 @@ const SpanishDetailedQuiz = () => {
             cursor: isAllAnswered ? 'pointer' : 'not-allowed',
           }}
         >
-          {loading ? 'Generando informe...' : '¡Obtenga Resultados!'}
-        </Button>
-
-        {showReport && (
-          <div className="report-section">
-            <h2>Informe Personalizado de Carrera</h2>
-            <div className="report-content">
-            {report}
-            </div>
+          ¡Obtenga resultados!
+        </Button> 
+        </div>
+        </div>:
+        (<div className = "report-border">
+            <div className="report-section">
+              <div className = "report-text">
+                {/* Report below */}
+              <h2 id = "report-header">Informe de carrera personalizado</h2>
+              <div style={{ 
+                whiteSpace: 'pre-wrap',
+                textAlign: 'left',
+                marginTop: '15px'
+              }}>
+                {report}
+              </div>
+              </div>
             <div className = "report-buttons">
             {/*Home Page Button*/}
             <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
@@ -155,9 +169,8 @@ const SpanishDetailedQuiz = () => {
             </Button>
             </div>
           </div>
-        )}
+          )};
       </div>
-    </div>
   );
 };
 
