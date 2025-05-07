@@ -89,6 +89,9 @@ const DetailedQuizPage = () => {
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  const gotoBasic = () => {
+    window.location.hash = '/basic-quiz';
+  }
 
   return (
     <div>
@@ -148,13 +151,19 @@ const DetailedQuizPage = () => {
             <div className="report-content">
               {report}
             </div>
-            <Button
-              className="submit-btn"
-              onClick={() => setShowReport(false)}
-              style={{ marginTop: '15px' }}
+            <div className = "report-buttons">
+              {/*Home Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+                onClick={() => goBackHome()}
             >
-              Close Report
+              Back to Home Page
             </Button>
+              {/*Detailed Quiz Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => gotoBasic()}>
+              Basic Quiz Page
+            </Button>
+            </div>
           </div>
         )}
       </div>

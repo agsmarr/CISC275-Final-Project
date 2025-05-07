@@ -81,6 +81,10 @@ const ChineseBasicQuiz = () => {
       setLoading(false);
     }
   };
+  /* Navigation back home */
+  const gotoDetailed = () => {
+    window.location.hash = '/detailed-quiz';
+  }
 
   return (
     <div>
@@ -178,18 +182,19 @@ const ChineseBasicQuiz = () => {
             }}>
               {report}
             </div>
-            <Button
-              variant="secondary"
-              onClick={() => setShowReport(false)}
-              style={{
-                marginTop: '15px',
-                backgroundColor: 'purple',
-                borderColor: 'purple',
-                color: 'white'
-              }}
+            <div className = "report-buttons">
+            {/*Home Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => goBackHome()}
             >
-              关闭报告
+              返回首页
             </Button>
+            {/*Detailed Quiz Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => gotoDetailed()}>
+              详细测验页面
+            </Button>
+            </div>
           </div>
         )}
       </div>
