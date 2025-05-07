@@ -73,6 +73,9 @@ const SpanishDetailedQuiz = () => {
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  const gotoBasic = () => {
+    window.location.hash = '/basic-quiz';
+  }
 
   const answeredCount = answers.filter((a) => a.trim() !== '').length;
   const textProgress = (answeredCount / 8) * 100;
@@ -135,14 +138,22 @@ const SpanishDetailedQuiz = () => {
         {showReport && (
           <div className="report-section">
             <h2>Informe Personalizado de Carrera</h2>
-            <div className="report-content">{report}</div>
-            <Button
-              className="submit-btn"
-              onClick={() => setShowReport(false)}
-              style={{ marginTop: '15px' }}
+            <div className="report-content">
+            {report}
+            </div>
+            <div className = "report-buttons">
+            {/*Home Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => goBackHome()}
             >
-              Cerrar Informe
+              Volver a la página de inicio
             </Button>
+              {/*Detailed Quiz Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => gotoBasic()}>
+              Página de prueba básica
+            </Button>
+            </div>
           </div>
         )}
       </div>
