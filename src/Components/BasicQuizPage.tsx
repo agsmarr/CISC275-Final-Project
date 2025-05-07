@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import './BasicQuizPage.css';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import { generateCareerReport } from './chatgpt';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const BasicQuizPage = () => {
   const[answer1, setAnswer1] = useState<string[]>([]);
@@ -63,17 +66,18 @@ const BasicQuizPage = () => {
   // Set up asynchronous communication with the GPT API to handle user interactions.
   const handleSubmit = async () => {
     if (!isAllAnswered) return;
-    
+  
     setLoading(true);
+    toast.info('Generating report...', { autoClose: 2000 }); // You can translate this per language
+  
     try {
-      
       const apiKey = localStorage.getItem('MYKEY');
       if (!apiKey) {
-        alert('Please enter your OpenAI API key in the footer first.');
+        toast.error('Please enter your OpenAI API key in the footer first.', { autoClose: 4000 });
         setLoading(false);
         return;
       }
-
+  
       const answers = {
         answer1,
         answer2,
@@ -83,15 +87,17 @@ const BasicQuizPage = () => {
         answer6,
         answer7
       };
-
-      // Generate the report from chatgpt
+  
       const generatedReport = await generateCareerReport(answers, apiKey.replace(/"/g, ''));
       setReport(generatedReport);
       setShowReport(true);
+  
+      toast.success('Career report generated successfully!', { autoClose: 3000 });
     } catch (error) {
       console.error('Error:', error);
       setReport('Failed to generate report. Please check your API key and try again.');
       setShowReport(true);
+      toast.error('Failed to generate report.', { autoClose: 4000 });
     } finally {
       setLoading(false);
     }
@@ -169,8 +175,10 @@ const BasicQuizPage = () => {
             cursor: isAllAnswered ? 'pointer' : 'not-allowed',
           }}
         >
-          {loading ? 'Please wait...' : 'Get Results!'}
+          {loading ? 'Generating Report...' : 'Get Results!'}
+          <ToastContainer position="top-right" />
         </Button>
+
 
         {showReport && (
           <div className="report-section" style={{ 
