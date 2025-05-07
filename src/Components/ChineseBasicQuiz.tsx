@@ -186,7 +186,6 @@ const ChineseBasicQuiz = () => {
               {report}
           </div>
           </div>
-            </div>
             <div className = "report-buttons">
             {/*Home Page Button*/}
             <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}

@@ -141,7 +141,7 @@ const SpanishDetailedQuiz = () => {
           ¡Obtenga resultados!
         </Button> 
         </div>
-        </div>:
+        </div> :
         (<div className = "report-border">
             <div className="report-section">
               <div className = "report-text">
@@ -168,6 +168,7 @@ const SpanishDetailedQuiz = () => {
               Página de prueba básica
             </Button>
             </div>
+          </div>
           </div>
           )};
       </div>
