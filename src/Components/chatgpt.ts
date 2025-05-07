@@ -85,7 +85,7 @@ export async function generateDetailedCareerReport(answers: DetailedQuizAnswers,
     return data.choices[0]?.message?.content || 'No response generated';
   } catch (error) {
     console.error('Error generating career report:', error);
-    return 'Failed to generate career report. Please try again later.';
+    return 'Failed to generate career report. Please ensure your api key works.';
   }
 }
 
@@ -165,7 +165,7 @@ Analiza completamente estas respuestas y recomienda trayectorias profesionales a
     return data.choices[0]?.message?.content || 'No se pudo generar el informe.';
   } catch (error) {
     console.error('Error al generar el informe:', error);
-    return 'Error al generar el informe. Por favor, inténtelo de nuevo más tarde.';
+    return 'Error al generar el informe de carrera. Por favor, asegúrate de que tu clave API funcione.';
   }
 }
 
@@ -249,7 +249,7 @@ export async function generateChineseDetailedCareerReport(answers: string[], api
     return data.choices[0]?.message?.content || '未能生成职业报告';
   } catch (error) {
     console.error('生成职业报告出错:', error);
-    return '生成职业报告失败，请稍后再试。';
+    return '生成职业报告失败。请确保您的 API 密钥有效。';
   }
 }
 
@@ -307,7 +307,7 @@ export async function generateCareerReport(answers: BasicQuizAnswers, apiKey: st
     return data.choices[0]?.message?.content || 'No response generated';
   } catch (error) {
     console.error('Error generating career report:', error);
-    return 'Failed to generate career report. Please try again later.';
+    return 'Failed to generate career report. Please ensure your api key works.';
   }
 }
 
@@ -365,7 +365,7 @@ Por favor, analiza estas respuestas y sugiere 3 posibles trayectorias profesiona
     return data.choices[0]?.message?.content || 'No se generó ninguna respuesta.';
   } catch (error) {
     console.error('Error al generar el informe profesional:', error);
-    return 'No se pudo generar el informe. Intente nuevamente más tarde.';
+    return 'Error al generar el informe de carrera. Por favor, asegúrate de que tu clave API funcione.';
   }
 }
 
@@ -423,7 +423,7 @@ export async function generateChineseCareerReport(answers: BasicQuizAnswers, api
     return data.choices[0]?.message?.content || '未能生成职业报告。';
   } catch (error) {
     console.error('生成职业报告出错:', error);
-    return '无法生成职业报告，请稍后重试。';
+    return '生成职业报告失败。请确保您的 API 密钥有效。';
   }
 }
 
