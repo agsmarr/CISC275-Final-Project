@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
-  ✓ renders learn react link (47 ms)
+  ✓ renders learn react link (49 ms)
 
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
@@ -20,29 +20,29 @@ go away.[0m
 --------------------------|---------|----------|---------|---------|--------------------------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                    
 --------------------------|---------|----------|---------|---------|--------------------------------------
-All files                 |    6.04 |     4.64 |    4.06 |     6.3 |                                      
+All files                 |    5.88 |     4.64 |    3.75 |    6.11 |                                      
  src                      |   33.96 |    19.11 |   36.36 |   33.33 |                                      
   App.tsx                 |   42.85 |    20.31 |   44.44 |    42.5 | 22,30-36,41,44,49-73,76,79           
   index.tsx               |       0 |      100 |     100 |       0 | 6-18                                 
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10                                 
- src/Components           |    2.94 |        0 |    0.89 |    3.17 |                                      
+ src/Components           |    2.85 |        0 |    0.81 |    3.07 |                                      
   AboutUsPage.tsx         |       0 |      100 |       0 |       0 | 8-11                                 
   BasicQuizPage.tsx       |    1.85 |        0 |       0 |    1.92 | 8-212                                
   ChineseAboutUsPage.tsx  |       0 |      100 |       0 |       0 | 8-11                                 
-  ChineseBasicQuiz.tsx    |    1.75 |        0 |       0 |    2.08 | 7-183                                
-  ChineseDetailedQuiz.tsx |    1.53 |        0 |       0 |    1.63 | 8-157                                
+  ChineseBasicQuiz.tsx    |    1.66 |        0 |       0 |    1.96 | 7-194                                
+  ChineseDetailedQuiz.tsx |    1.47 |        0 |       0 |    1.56 | 8-167                                
   ChineseHomeButtons.tsx  |       0 |      100 |       0 |       0 | 4-11                                 
-  DetailedQuizPage.tsx    |    1.61 |        0 |       0 |    1.75 | 7-153                                
+  DetailedQuizPage.tsx    |    1.53 |        0 |       0 |    1.66 | 7-163                                
   HomeButtons.tsx         |      60 |      100 |   33.33 |      60 | 5,9                                  
   LoadingScreen.tsx       |       0 |      100 |       0 |       0 | 6                                    
   SpanishAboutUsPage.tsx  |       0 |      100 |       0 |       0 | 8-11                                 
-  SpanishBasicQuiz.tsx    |    1.75 |        0 |       0 |    2.04 | 8-186                                
-  SpanishDetailedQuiz.tsx |    1.61 |        0 |       0 |    1.72 | 7-141                                
+  SpanishBasicQuiz.tsx    |    1.66 |        0 |       0 |    1.92 | 8-195                                
+  SpanishDetailedQuiz.tsx |    1.53 |        0 |       0 |    1.63 | 7-153                                
   SpanishHomeButtons.tsx  |       0 |      100 |       0 |       0 | 4-11                                 
   chatgpt.ts              |    5.31 |        0 |       0 |    5.49 | 19-88,99-109,113-168,182-192,196-426 
 --------------------------|---------|----------|---------|---------|--------------------------------------
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        3.847 s
+Time:        4.044 s
 Ran all test suites.
