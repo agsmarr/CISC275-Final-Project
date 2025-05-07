@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './BasicQuizPage.css';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import { generateSpanishCareerReport } from './chatgpt';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
 const SpanishBasicQuiz = () => {
@@ -52,12 +50,12 @@ const SpanishBasicQuiz = () => {
     if (!isAllAnswered) return;
   
     setLoading(true);
-    toast.info('Generando informe de carrera...', { autoClose: 2000 }); // "Generating career report..."
+    window.alert('Generando informe de carrera...'); // "Generating career report..."
   
     try {
       const apiKey = localStorage.getItem('MYKEY');
       if (!apiKey) {
-        toast.error('Por favor, introduzca su clave de API en el pie de página.', { autoClose: 4000 });
+        window.alert('Por favor, introduzca su clave de API en el pie de página.');
         setLoading(false);
         return;
       }
@@ -76,12 +74,12 @@ const SpanishBasicQuiz = () => {
       setReport(generatedReport);
       setShowReport(true);
   
-      toast.success('¡Informe de carrera generado con éxito!', { autoClose: 3000 });
+      window.alert('¡Informe de carrera generado con éxito!');
     } catch (error) {
       console.error('Error:', error);
       setReport('No se pudo generar el informe. Por favor, revise su clave de API e inténtelo de nuevo.');
       setShowReport(true);
-      toast.error('No se pudo generar el informe. Inténtelo más tarde.', { autoClose: 4000 });
+      window.alert('No se pudo generar el informe. Inténtelo más tarde.');
     } finally {
       setLoading(false);
     }
@@ -165,7 +163,6 @@ const SpanishBasicQuiz = () => {
           }}
         >
           {loading ? 'Generando Informe...' : '¡Obtenga Resultados!'}
-          <ToastContainer position="top-right" />
         </Button>
 
         {showReport && (

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Button, Form, ProgressBar, Spinner } from 'react-bootstrap';
 import './DetailedQuizPage.css';
 import { generateChineseDetailedCareerReport, validateChineseAnswer} from './chatgpt';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
 const ChineseDetailedQuiz = () => {
@@ -60,7 +58,7 @@ const ChineseDetailedQuiz = () => {
   
     const apiKey = localStorage.getItem('MYKEY');
     if (!apiKey) {
-      toast.error('请先在页面底部输入您的 OpenAI API 密钥。', { autoClose: 4000 });
+      window.alert('请先在页面底部输入您的 OpenAI API 密钥。');
       return;
     }
   
@@ -68,19 +66,19 @@ const ChineseDetailedQuiz = () => {
     setReport('');
     setShowReport(false);
   
-    toast.info('正在生成职业报告...', { autoClose: 2000 });
+    window.alert('正在生成职业报告...');
   
     try {
       const result = await generateChineseDetailedCareerReport(textAnswers, apiKey.replace(/"/g, ''));
       setReport(result);
       setShowReport(true);
   
-      toast.success('职业报告生成成功！', { autoClose: 3000 });
+      window.alert('职业报告生成成功！');
     } catch (error) {
       console.error('生成职业报告失败:', error);
       setReport('生成职业报告失败，请稍后再试。');
       setShowReport(true);
-      toast.error('生成职业报告失败，请稍后再试。', { autoClose: 4000 });
+      window.alert('生成职业报告失败，请稍后再试。');
     } finally {
       setLoading(false);
     }
@@ -146,7 +144,6 @@ const ChineseDetailedQuiz = () => {
           }}
         >
           {loading ? '正在生成报告…' : '获得结果！'}
-          <ToastContainer position="top-right" />
         </Button>
 
         {showReport && (
