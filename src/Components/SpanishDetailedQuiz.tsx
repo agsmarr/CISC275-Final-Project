@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import './DetailedQuizPage.css';
 import { validateSpanishAnswer, generateSpanishDetailedCareerReport } from './chatgpt';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const SpanishDetailedQuiz = () => {
   const [answers, setAnswers] = useState<string[]>(Array(8).fill(''));
@@ -49,24 +47,24 @@ const SpanishDetailedQuiz = () => {
   
     const apiKey = localStorage.getItem('MYKEY');
     if (!apiKey) {
-      toast.error('Por favor, ingrese su clave API de OpenAI en el pie de página primero.', { autoClose: 4000 });
+      window.alert('Por favor, ingrese su clave API de OpenAI en el pie de página primero.');
       return;
     }
   
     setLoading(true);
-    toast.info('Generando informe profesional...', { autoClose: 2000 });
+    window.alert('Generando informe profesional...');
   
     try {
       const generatedReport = await generateSpanishDetailedCareerReport(answers, apiKey.replace(/"/g, ''));
       setReport(generatedReport);
       setShowReport(true);
   
-      toast.success('¡Informe generado con éxito!', { autoClose: 3000 });
+      window.alert('¡Informe generado con éxito!');
     } catch (err) {
       console.error(err);
       setReport('No se pudo generar el informe. Por favor, inténtelo de nuevo.');
       setShowReport(true);
-      toast.error('No se pudo generar el informe. Inténtelo más tarde.', { autoClose: 4000 });
+      window.alert('No se pudo generar el informe. Inténtelo más tarde.');
     } finally {
       setLoading(false);
     }
@@ -75,6 +73,9 @@ const SpanishDetailedQuiz = () => {
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  const gotoBasic = () => {
+    window.location.hash = '/basic-quiz';
+  }
 
   const answeredCount = answers.filter((a) => a.trim() !== '').length;
   const textProgress = (answeredCount / 8) * 100;
@@ -132,20 +133,27 @@ const SpanishDetailedQuiz = () => {
           }}
         >
           {loading ? 'Generando informe...' : '¡Obtenga Resultados!'}
-          <ToastContainer position="top-right" /> 
         </Button>
 
         {showReport && (
           <div className="report-section">
             <h2>Informe Personalizado de Carrera</h2>
-            <div className="report-content">{report}</div>
-            <Button
-              className="submit-btn"
-              onClick={() => setShowReport(false)}
-              style={{ marginTop: '15px' }}
+            <div className="report-content">
+            {report}
+            </div>
+            <div className = "report-buttons">
+            {/*Home Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => goBackHome()}
             >
-              Cerrar Informe
+              Volver a la página de inicio
             </Button>
+              {/*Detailed Quiz Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => gotoBasic()}>
+              Página de prueba básica
+            </Button>
+            </div>
           </div>
         )}
       </div>

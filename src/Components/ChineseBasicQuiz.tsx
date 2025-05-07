@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import './BasicQuizPage.css';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import { generateChineseCareerReport } from './chatgpt';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 
 const ChineseBasicQuiz = () => {
   const [answer1, setAnswer1] = useState<string[]>([]);
@@ -50,12 +47,12 @@ const ChineseBasicQuiz = () => {
     if (!isAllAnswered) return;
   
     setLoading(true);
-    toast.info('正在生成职业报告...', { autoClose: 2000 }); // “Generating report…”
+    window.alert('正在生成职业报告...'); // “Generating report…”
   
     try {
       const apiKey = localStorage.getItem('MYKEY');
       if (!apiKey) {
-        toast.error('请先在页脚中输入您的 OpenAI API 密钥。', { autoClose: 4000 });
+        window.alert('请先在页脚中输入您的 OpenAI API 密钥。');
         setLoading(false);
         return;
       }
@@ -74,16 +71,20 @@ const ChineseBasicQuiz = () => {
       setReport(generatedReport);
       setShowReport(true);
   
-      toast.success('职业报告生成成功！', { autoClose: 3000 });
+      window.alert('职业报告生成成功！');
     } catch (error) {
       console.error('生成报告失败:', error);
       setReport('生成报告失败，请稍后再试。');
       setShowReport(true);
-      toast.error('生成报告失败，请稍后再试。', { autoClose: 4000 });
+      window.alert('生成报告失败，请稍后再试。');
     } finally {
       setLoading(false);
     }
   };
+  /* Navigation back home */
+  const gotoDetailed = () => {
+    window.location.hash = '/detailed-quiz';
+  }
 
   return (
     <div>
@@ -163,7 +164,6 @@ const ChineseBasicQuiz = () => {
           }}
         >
           {loading ? '正在生成报告...' : '获得结果！'}
-          <ToastContainer position="top-right" />
         </Button>
 
         {showReport && (
@@ -182,18 +182,19 @@ const ChineseBasicQuiz = () => {
             }}>
               {report}
             </div>
-            <Button
-              variant="secondary"
-              onClick={() => setShowReport(false)}
-              style={{
-                marginTop: '15px',
-                backgroundColor: 'purple',
-                borderColor: 'purple',
-                color: 'white'
-              }}
+            <div className = "report-buttons">
+            {/*Home Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => goBackHome()}
             >
-              关闭报告
+              返回首页
             </Button>
+            {/*Detailed Quiz Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => gotoDetailed()}>
+              详细测验页面
+            </Button>
+            </div>
           </div>
         )}
       </div>

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import './DetailedQuizPage.css';
 import { generateDetailedCareerReport, validateAnswer } from './chatgpt';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const DetailedQuizPage = () => {
   const [answers, setAnswers] = useState({
@@ -63,12 +61,12 @@ const DetailedQuizPage = () => {
     if (!isValid || !isAllAnswered) return;
   
     setLoading(true);
-    toast.info('Generating career report...', { autoClose: 2000 }); // Info message
+    window.alert('Generating career report...'); // Info message
   
     try {
       const apiKey = localStorage.getItem('MYKEY');
       if (!apiKey) {
-        toast.error('Please enter your OpenAI API key in the footer first.', { autoClose: 4000 });
+        window.alert('Please enter your OpenAI API key in the footer first.');
         setLoading(false);
         return;
       }
@@ -77,12 +75,12 @@ const DetailedQuizPage = () => {
       setReport(generatedReport);
       setShowReport(true);
   
-      toast.success('Career report generated successfully!', { autoClose: 3000 });
+      window.alert('Career report generated successfully!');
     } catch (error) {
       console.error('Error:', error);
       setReport('Failed to generate report. Please try again.');
       setShowReport(true);
-      toast.error('Failed to generate report. Please try again later.', { autoClose: 4000 });
+      window.alert('Failed to generate report. Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -91,6 +89,9 @@ const DetailedQuizPage = () => {
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  const gotoBasic = () => {
+    window.location.hash = '/basic-quiz';
+  }
 
   return (
     <div>
@@ -142,7 +143,6 @@ const DetailedQuizPage = () => {
           className="submit-btn"
         >
           {loading ? 'Generating Report...' : 'Get Results!'}
-          <ToastContainer position="top-right" />
         </Button>
 
         {showReport && (
@@ -151,13 +151,19 @@ const DetailedQuizPage = () => {
             <div className="report-content">
               {report}
             </div>
-            <Button
-              className="submit-btn"
-              onClick={() => setShowReport(false)}
-              style={{ marginTop: '15px' }}
+            <div className = "report-buttons">
+              {/*Home Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+                onClick={() => goBackHome()}
             >
-              Close Report
+              Back to Home Page
             </Button>
+              {/*Detailed Quiz Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => gotoBasic()}>
+              Basic Quiz Page
+            </Button>
+            </div>
           </div>
         )}
       </div>
