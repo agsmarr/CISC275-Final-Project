@@ -1,4 +1,43 @@
 //ChineseDetailedQuiz 
+// Shared interfaces
+export interface ValidationResult {
+  isValid: boolean;
+  message: string;
+}
+
+// Chinese validation rules
+const getChineseValidationRules = (index: number): { min: number; max: number; required: boolean } => {
+  const rules = [
+    { min: 10, max: 200, required: true },
+    { min: 15, max: 300, required: true },
+    { min: 20, max: 300, required: true },
+    { min: 15, max: 300, required: true },
+    { min: 20, max: 400, required: true },
+    { min: 25, max: 350, required: true },
+    { min: 20, max: 300, required: true },
+    { min: 20, max: 300, required: true },
+  ];
+  return rules[index];
+};
+
+export const validateChineseAnswer = (answer: string, index: number): ValidationResult => {
+  const rule = getChineseValidationRules(index);
+
+  if (rule.required && !answer.trim()) {
+    return { isValid: false, message: '该字段为必填项。' };
+  }
+
+  if (answer.length < rule.min) {
+    return { isValid: false, message: `至少需要输入 ${rule.min} 个字符。` };
+  }
+
+  if (answer.length > rule.max) {
+    return { isValid: false, message: `最多允许输入 ${rule.max} 个字符。` };
+  }
+
+  return { isValid: true, message: '' };
+};
+
 export async function generateChineseDetailedCareerReport(answers: string[], apiKey: string): Promise<string> {
   const systemRole = `你是一位职业规划专家。请根据用户在职业评估问卷中用中文提交的详细回答，生成一份个性化的职业报告。
 请提供3-5个适合的职业方向，并为每一个方向给出详细说明。风格应当专业而友好，结合用户的所有回答内容，提出有针对性的建议，并用清晰的标题格式呈现。`;

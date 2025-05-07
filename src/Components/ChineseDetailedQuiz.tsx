@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { Button, Form, ProgressBar, Spinner } from 'react-bootstrap';
 import './DetailedQuizPage.css';
-import { generateChineseDetailedCareerReport } from './chatgpt';
+import {
+  generateChineseDetailedCareerReport,
+  validateChineseAnswer
+} from './chatgpt';
 
 const ChineseDetailedQuiz = () => {
   const [textAnswers, setTextAnswers] = useState(Array(8).fill(''));
+  const [errors, setErrors] = useState<string[]>(Array(8).fill(''));
   const [loading, setLoading] = useState(false);
   const [report, setReport] = useState('');
   const [showReport, setShowReport] = useState(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
 
   const answeredCount = textAnswers.filter((a) => a.trim() !== '').length;
   const textProgress = (answeredCount / 8) * 100;
   const isAllAnswered = answeredCount === 8;
+  const allValid = errors.every(msg => msg === '');
 
   const goBackHome = () => {
     window.location.hash = '/';
@@ -21,10 +27,36 @@ const ChineseDetailedQuiz = () => {
     const updatedAnswers = [...textAnswers];
     updatedAnswers[index] = value;
     setTextAnswers(updatedAnswers);
+
+    if (submitAttempted) {
+      const validation = validateChineseAnswer(value, index);
+      const newErrors = [...errors];
+      newErrors[index] = validation.isValid ? '' : validation.message;
+      setErrors(newErrors);
+    }
+  };
+
+  const handleBlur = (index: number) => {
+    const validation = validateChineseAnswer(textAnswers[index], index);
+    const newErrors = [...errors];
+    newErrors[index] = validation.isValid ? '' : validation.message;
+    setErrors(newErrors);
+  };
+
+  const validateAll = (): boolean => {
+    const newErrors = textAnswers.map((a, i) => {
+      const result = validateChineseAnswer(a, i);
+      return result.isValid ? '' : result.message;
+    });
+    setErrors(newErrors);
+    return newErrors.every(e => e === '');
   };
 
   const handleSubmit = async () => {
-    if (!isAllAnswered) return;
+    setSubmitAttempted(true);
+    const isValid = validateAll();
+
+    if (!isValid || !isAllAnswered) return;
 
     const apiKey = localStorage.getItem('MYKEY');
     if (!apiKey) {
@@ -85,7 +117,12 @@ const ChineseDetailedQuiz = () => {
                   rows={3}
                   value={textAnswers[index]}
                   onChange={(e) => handleChange(index, e.target.value)}
+                  onBlur={() => handleBlur(index)}
+                  isInvalid={!!errors[index]}
                 />
+                <Form.Control.Feedback type="invalid">
+                  {errors[index]}
+                </Form.Control.Feedback>
               </Form.Group>
             </div>
           ))}
@@ -94,15 +131,15 @@ const ChineseDetailedQuiz = () => {
         <Button
           id="Submit-Button"
           onClick={handleSubmit}
-          disabled={!isAllAnswered || loading}
+          disabled={!isAllAnswered || loading || !allValid}
           className="submit-btn"
           style={{
-            backgroundColor: isAllAnswered ? 'purple' : 'grey',
-            cursor: isAllAnswered ? 'pointer' : 'not-allowed',
+            backgroundColor: isAllAnswered && allValid ? 'purple' : 'grey',
+            cursor: isAllAnswered && allValid ? 'pointer' : 'not-allowed',
             marginTop: '15px',
           }}
         >
-          {loading ? <Spinner animation="border" size="sm" /> : '获得结果！'}
+          {loading ? '正在生成报告…' : '获得结果！'}
         </Button>
 
         {showReport && (
