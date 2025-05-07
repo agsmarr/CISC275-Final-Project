@@ -368,3 +368,62 @@ Por favor, analiza estas respuestas y sugiere 3 posibles trayectorias profesiona
     return 'No se pudo generar el informe. Intente nuevamente más tarde.';
   }
 }
+
+
+//ChieseBasicQuiz
+// ChineseBasicQuiz
+export interface BasicQuizAnswers {
+  answer1: string[];
+  answer2: string;
+  answer3: string;
+  answer4: string;
+  answer5: string;
+  answer6: string;
+  answer7: string;
+}
+
+export async function generateChineseCareerReport(answers: BasicQuizAnswers, apiKey: string): Promise<string> {
+  const systemRole = `你是一位职业指导专家。请分析用户在职业测验中的基础回答，并生成一份个性化的职业报告。
+建议三个适合的职业路径，并为每个推荐提供简要说明。保持专业而友好的语气，并使用清晰的标题格式呈现内容。`;
+
+  const userPrompt = `请根据以下基础问题的回答，为用户生成一份职业规划报告：
+
+1. 喜欢的学科：${answers.answer1.join(', ')}
+2. 工作偏好（人/数据/物体）：${answers.answer2}
+3. 喜欢的工作环境：${answers.answer3}
+4. 工作方式偏好（独立/团队）：${answers.answer4}
+5. 喜欢领导还是执行任务：${answers.answer5}
+6. 喜欢的任务类型（例行/创新）：${answers.answer6}
+7. 最重要的动机（收入、服务社会、热情）：${answers.answer7}
+
+请提供三个可能的职业方向，并给出每个方向的简要解释。`;
+
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-4',
+        messages: [
+          { role: 'system', content: systemRole },
+          { role: 'user', content: userPrompt }
+        ],
+        temperature: 0.7
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.choices[0]?.message?.content || '未能生成职业报告。';
+  } catch (error) {
+    console.error('生成职业报告出错:', error);
+    return '无法生成职业报告，请稍后重试。';
+  }
+}
+
