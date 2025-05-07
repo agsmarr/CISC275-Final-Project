@@ -1,139 +1,145 @@
-import React, {useState} from 'react';
-import { Button, Form ,ProgressBar} from 'react-bootstrap';
-import './DetailedQuizPage.css'
+import React, { useState } from 'react';
+import { Button, Form, ProgressBar } from 'react-bootstrap';
+import './DetailedQuizPage.css';
+import { validateSpanishAnswer, generateSpanishDetailedCareerReport } from './chatgpt';
+
 const SpanishDetailedQuiz = () => {
-  const [textAnswer1, setTextAnswer1] = useState('');
-  const [textAnswer2, setTextAnswer2] = useState('');
-  const [textAnswer3, setTextAnswer3] = useState('');
-  const [textAnswer4, setTextAnswer4] = useState('');
-  const [textAnswer5, setTextAnswer5] = useState('');
-  const [textAnswer6, setTextAnswer6] = useState('');
-  const [textAnswer7, setTextAnswer7] = useState('');
-  const [textAnswer8, setTextAnswer8] = useState('');
-  const textAnsweredCount = [
-    textAnswer1,
-    textAnswer2,
-    textAnswer3,
-    textAnswer4,
-    textAnswer5,
-    textAnswer6,
-    textAnswer7,
-    textAnswer8,
-  ].filter((a) => a.trim() !== '').length;
-  const textProgress = (textAnsweredCount / 8) * 100;
-  const textAnswers = [textAnswer1, textAnswer2, textAnswer3, textAnswer4, textAnswer5, textAnswer6, textAnswer7,textAnswer8];
-  const answeredCount = textAnswers.filter((a) => a.trim() !== '').length;
-  const isAllAnswered = answeredCount === textAnswers.length;
+  const [answers, setAnswers] = useState<string[]>(Array(8).fill(''));
+  const [errors, setErrors] = useState<string[]>(Array(8).fill(''));
+  const [submitAttempted, setSubmitAttempted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [report, setReport] = useState('');
+  const [showReport, setShowReport] = useState(false);
+
+  const handleChange = (index: number, value: string) => {
+    const newAnswers = [...answers];
+    newAnswers[index] = value;
+    setAnswers(newAnswers);
+
+    if (submitAttempted) {
+      const result = validateSpanishAnswer(value, index);
+      const newErrors = [...errors];
+      newErrors[index] = result.isValid ? '' : result.message;
+      setErrors(newErrors);
+    }
+  };
+
+  const handleBlur = (index: number) => {
+    const result = validateSpanishAnswer(answers[index], index);
+    const newErrors = [...errors];
+    newErrors[index] = result.isValid ? '' : result.message;
+    setErrors(newErrors);
+  };
+
+  const validateAll = () => {
+    const newErrors = answers.map((answer, i) => {
+      const result = validateSpanishAnswer(answer, i);
+      return result.isValid ? '' : result.message;
+    });
+    setErrors(newErrors);
+    return newErrors.every(err => err === '');
+  };
+
+  const handleSubmit = async () => {
+    setSubmitAttempted(true);
+    const isValid = validateAll();
+    if (!isValid) return;
+
+    const apiKey = localStorage.getItem('MYKEY');
+    if (!apiKey) {
+      alert('Por favor, ingrese su clave API de OpenAI en el pie de página primero.');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const generatedReport = await generateSpanishDetailedCareerReport(answers, apiKey.replace(/"/g, ''));
+      setReport(generatedReport);
+      setShowReport(true);
+    } catch (err) {
+      console.error(err);
+      setReport('No se pudo generar el informe. Por favor, inténtelo de nuevo.');
+      setShowReport(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const goBackHome = () => {
     window.location.hash = '/';
   };
+
+  const answeredCount = answers.filter((a) => a.trim() !== '').length;
+  const textProgress = (answeredCount / 8) * 100;
+  const isAllAnswered = answeredCount === 8 && errors.every(e => e === '');
+
+  const questions = [
+    '¿Te gusta viajar al trabajo? Si es así, ¿qué tan lejos?',
+    '¿Qué haces en tu tiempo libre?',
+    '¿Qué actividades te interesan? ¿Por qué?',
+    '¿Cuáles son tus clases favoritas y por qué?',
+    '¿Cuáles son tus habilidades blandas y duras?',
+    '¿Cuáles son las tres características principales que desea tener en su entorno de trabajo?',
+    '¿Qué importancia tiene el salario laboral en comparación con la satisfacción laboral a la hora de elegir una carrera?',
+    '¿Te ves en un rol de liderazgo o preferirías especializarte en una habilidad específica?',
+  ];
+
   return (
     <div>
       <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
-        Página de Inicio
+          Página de Inicio
         </Button>
       </header>
-      <h1 id = "detailed-header">Cuestionario de Preguntas Detalladas</h1>
+      <h1 id="detailed-header">Cuestionario de Preguntas Detalladas</h1>
       <div className="sticky-progress-bar">
         <ProgressBar now={textProgress} variant="info" label={`${Math.round(textProgress)}%`} />
       </div>
-      <div className = "question-box">
-      <Form>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Pregunta 1</h2>
-        <Form.Group className="questions" controlId="q1">
-          <Form.Label>¿Te gusta viajar al trabajo? Si es así, ¿qué tan lejos?</Form.Label>
-          <Form.Control
-            type="text"
-            value={textAnswer1}
-            onChange={(e) => setTextAnswer1(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Pregunta 2</h2>
-        <Form.Group className="questions" controlId="q2">
-          <Form.Label>¿Qué haces en tu tiempo libre?</Form.Label>
-          <Form.Control
-            type="text"
-            value={textAnswer2}
-            onChange={(e) => setTextAnswer2(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Pregunta 3</h2>
-        <Form.Group className="questions" controlId="q3">
-          <Form.Label>¿Qué actividades te interesan? ¿Por qué?</Form.Label>
-          <Form.Control
-           type="text"
-           value={textAnswer3}
-           onChange={(e) => setTextAnswer3(e.target.value)}
-           />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Pregunta 4</h2>
-        <Form.Group className="questions" controlId="q4">
-          <Form.Label>¿Cuales son tus clases favoritas y por qué?</Form.Label>
-          <Form.Control
-           type="text"
-          value={textAnswer4}
-          onChange={(e) => setTextAnswer4(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Pregunta 5</h2>
-        <Form.Group className="questions" controlId="q5">
-          <Form.Label>¿Cuales son tus habilidades blandas y duras?</Form.Label>
-          <Form.Control
-          type="text"
-          value={textAnswer5}
-          onChange={(e) => setTextAnswer5(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Pregunta 6</h2>
-        <Form.Group className="questions" controlId="q6">
-          <Form.Label>¿Cuáles son las tres características principales que desea tener en su entorno de trabajo?</Form.Label>
-          <Form.Control
-            type="text"
-            value={textAnswer6}
-            onChange={(e) => setTextAnswer6(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Pregunta 7</h2>
-        <Form.Group className="questions" controlId="q7">
-          <Form.Label>¿Qué importancia tiene el salario laboral en comparación con la satisfacción laboral a la hora de elegir una carrera?</Form.Label>
-          <Form.Control
-           type="text"
-           value={textAnswer7}
-           onChange={(e) => setTextAnswer7(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-        <div className = "question-boxes">
-        <h2 className = "question-headers">Pregunta 8</h2>
-        <Form.Group className="questions" controlId="q8">
-         <Form.Label>¿Te ves en un rol de liderazgo o preferirías especializarte en una habilidad específica?</Form.Label>
-          <Form.Control
-            type="text"
-            value={textAnswer8}
-            onChange={(e) => setTextAnswer8(e.target.value)}
-          />
-        </Form.Group>
-        </div>
-      </Form>
-      <Button
-        id="Submit-Button"onClick={() => alert("¡Resultados enviados!")}disabled={!isAllAnswered}
-        style={{backgroundColor: isAllAnswered ? 'purple' : 'grey',cursor: isAllAnswered ? 'pointer' : 'not-allowed',}}>
-          ¡Obtenga Resultados!
-      </Button>
+      <div className="question-box">
+        <Form>
+          {questions.map((label, i) => (
+            <div className="question-boxes" key={i}>
+              <h2 className="question-headers">Pregunta {i + 1}</h2>
+              <Form.Group controlId={`q${i + 1}`} className="questions">
+                <Form.Label>{label}</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  value={answers[i]}
+                  onChange={(e) => handleChange(i, e.target.value)}
+                  onBlur={() => handleBlur(i)}
+                  isInvalid={!!errors[i]}
+                />
+                <Form.Control.Feedback type="invalid">{errors[i]}</Form.Control.Feedback>
+              </Form.Group>
+            </div>
+          ))}
+        </Form>
+        <Button
+          id="Submit-Button"
+          onClick={handleSubmit}
+          disabled={!isAllAnswered || loading}
+          style={{
+            backgroundColor: isAllAnswered ? 'purple' : 'grey',
+            cursor: isAllAnswered ? 'pointer' : 'not-allowed',
+          }}
+        >
+          {loading ? 'Generando informe...' : '¡Obtenga Resultados!'}
+        </Button>
+
+        {showReport && (
+          <div className="report-section">
+            <h2>Informe Personalizado de Carrera</h2>
+            <div className="report-content">{report}</div>
+            <Button
+              className="submit-btn"
+              onClick={() => setShowReport(false)}
+              style={{ marginTop: '15px' }}
+            >
+              Cerrar Informe
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

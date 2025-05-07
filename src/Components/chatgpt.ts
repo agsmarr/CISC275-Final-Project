@@ -1,5 +1,84 @@
+//SpanishDetailedQuiz
+export interface ValidationResult {
+  isValid: boolean;
+  message: string;
+}
+
+const getSpanishValidationRules = (index: number): { min: number; max: number; required: boolean } => {
+  const rules = [
+    { min: 10, max: 200, required: true },
+    { min: 15, max: 300, required: true },
+    { min: 20, max: 300, required: true },
+    { min: 15, max: 300, required: true },
+    { min: 20, max: 400, required: true },
+    { min: 25, max: 350, required: true },
+    { min: 20, max: 300, required: true },
+    { min: 20, max: 300, required: true },
+  ];
+  return rules[index];
+};
+
+export const validateSpanishAnswer = (answer: string, index: number): ValidationResult => {
+  const rule = getSpanishValidationRules(index);
+
+  if (rule.required && !answer.trim()) {
+    return { isValid: false, message: 'Este campo es obligatorio.' };
+  }
+
+  if (answer.length < rule.min) {
+    return { isValid: false, message: `Se requieren al menos ${rule.min} caracteres.` };
+  }
+
+  if (answer.length > rule.max) {
+    return { isValid: false, message: `Se permiten como máximo ${rule.max} caracteres.` };
+  }
+
+  return { isValid: true, message: '' };
+};
+
+export async function generateSpanishDetailedCareerReport(answers: string[], apiKey: string): Promise<string> {
+  const systemRole = `Eres un experto en orientación profesional. Analiza las respuestas detalladas del cuestionario en español y proporciona un informe personalizado de carrera. Sugiere de 3 a 5 trayectorias profesionales adecuadas con explicaciones detalladas. Sé profesional pero amigable y estructura tu respuesta con títulos claros.`;
+
+  const userPrompt = `Basándote en las siguientes respuestas del usuario al cuestionario detallado, proporciona un informe de carrera en español:
+
+1. Preferencias de viaje: ${answers[0]}
+2. Actividades en el tiempo libre: ${answers[1]}
+3. Actividades de interés y razones: ${answers[2]}
+4. Clases favoritas y razones: ${answers[3]}
+5. Habilidades (blandas y duras): ${answers[4]}
+6. Características deseadas del entorno laboral: ${answers[5]}
+7. Importancia del salario vs. satisfacción: ${answers[6]}
+8. Preferencia por liderazgo o especialización: ${answers[7]}
+
+Analiza completamente estas respuestas y recomienda trayectorias profesionales adecuadas con explicaciones detalladas.`;
+
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-4',
+        messages: [
+          { role: 'system', content: systemRole },
+          { role: 'user', content: userPrompt }
+        ],
+        temperature: 0.7
+      })
+    });
+
+    if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
+    const data = await response.json();
+    return data.choices[0]?.message?.content || 'No se pudo generar el informe.';
+  } catch (error) {
+    console.error('Error al generar el informe:', error);
+    return 'Error al generar el informe. Por favor, inténtelo de nuevo más tarde.';
+  }
+}
+
 //ChineseDetailedQuiz 
-// Shared interfaces
 export interface ValidationResult {
   isValid: boolean;
   message: string;
