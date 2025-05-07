@@ -20,6 +20,9 @@ const ChineseDetailedQuiz = () => {
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  const gotoBasic = () => {
+    window.location.hash = '/basic-quiz';
+  }
 
   const handleChange = (index: number, value: string) => {
     const updatedAnswers = [...textAnswers];
@@ -166,6 +169,20 @@ const ChineseDetailedQuiz = () => {
               {report}
           </div>
           </div>
+            </div>
+            <div className = "report-buttons">
+            {/*Home Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+              onClick={() => goBackHome()}
+            >
+              返回首页
+            </Button>
+            {/*Detailed Quiz Page Button*/}
+            <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
+            onClick={() => gotoBasic()}>
+              基础测验页面
+             </Button>
+            </div>
           </div>
         )}
       </div>
