@@ -58,6 +58,7 @@ const BasicQuizPage = () => {
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  /* Navigation to detailed quiz */
   const gotoDetailed = () => {
     window.location.hash = '/detailed-quiz';
   }
@@ -72,7 +73,6 @@ const BasicQuizPage = () => {
   
     setLoading(true);
     window.alert('Generation report...');
-    /*toast.info('Generating report...', { autoClose: 2000 });*/ // You can translate this per language
   
     try {
       const apiKey = localStorage.getItem('MYKEY');
@@ -114,6 +114,7 @@ const BasicQuizPage = () => {
         The quiz will show if loading is false & showReport is false */}
         {loading ? <LoadingScreen></LoadingScreen> : !showReport ? 
         <div>
+          {/*Home page button */}
         <header>
             <Button variant="secondary" id="home-button" onClick={goBackHome}>
               Home Page
@@ -123,6 +124,7 @@ const BasicQuizPage = () => {
         <div className="sticky-progress-bar mt-4">
           <ProgressBar now={progress} variant="info" label={`${Math.round(progress)}%`} />
         </div>
+        {/*Basic Quiz Questions*/}
         <div className="question-box">
           <div className="question-boxes">
             <h2 className="question-headers">Question 1</h2>
@@ -175,6 +177,7 @@ const BasicQuizPage = () => {
             <Form.Check type="radio" id="question7-answer2" label="Assisting Community" value="Assisting Community" onChange={updateAnswer7} checked={answer7 === "Assisting Community"} />
             <Form.Check type="radio" id="question7-answer3" label="Doing What You Love" value="Doing What You Love" onChange={updateAnswer7} checked={answer7 === "Doing What You Love"} />
           </div>
+          {/*Submit button --> only enabled when isAllAnswered is true */}
           <Button
             id="Submit-Button"
             onClick={handleSubmit}

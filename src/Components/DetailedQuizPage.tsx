@@ -55,6 +55,8 @@ const DetailedQuizPage = () => {
   const progress = (answeredCount / 8) * 100;
   const isAllAnswered = answeredCount === 8;
 
+  /*Chat GPT integration */
+  // Set up asynchronous communication with the GPT API to handle user interactions.
   const handleSubmit = async () => {
     setSubmitAttempted(true);
     const isValid = validateAll();
@@ -86,10 +88,11 @@ const DetailedQuizPage = () => {
       setLoading(false);
     }
   };
-
+  /*Navigate to home page*/
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  /*Navigate to basic quiz*/
   const gotoBasic = () => {
     window.location.hash = '/basic-quiz';
   }
@@ -110,6 +113,7 @@ const DetailedQuizPage = () => {
       <div className="sticky-progress-bar">
         <ProgressBar now={progress} variant="info" label={`${Math.round(progress)}%`} />
       </div>
+      {/*Detailed quiz questions */}
       <div className="question-box">
         <Form>
           {[
@@ -141,7 +145,7 @@ const DetailedQuizPage = () => {
             </div>
           ))}
         </Form>
-
+        {/*Submit button --> only enabled when all questions are answered */}
         <Button
           id="Submit-Button"
           onClick={handleSubmit}
@@ -156,6 +160,7 @@ const DetailedQuizPage = () => {
           <div className = "report-border">
             <div className="report-section">
               <div className = "report-text">
+                {/*Report below*/}
                 <h2>Personalized Career Report</h2>
                 <div style={{ 
                 whiteSpace: 'pre-wrap',

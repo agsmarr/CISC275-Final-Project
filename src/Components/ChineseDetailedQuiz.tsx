@@ -16,10 +16,12 @@ const ChineseDetailedQuiz = () => {
   const textProgress = (answeredCount / 8) * 100;
   const isAllAnswered = answeredCount === 8;
   const allValid = errors.every(msg => msg === '');
-
+  
+  /*Navigate to home page*/
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  /*Navigate to basic quiz*/
   const gotoBasic = () => {
     window.location.hash = '/basic-quiz';
   }
@@ -52,7 +54,8 @@ const ChineseDetailedQuiz = () => {
     setErrors(newErrors);
     return newErrors.every(e => e === '');
   };
-
+  /*Chat GPT integration */
+  // Set up asynchronous communication with the GPT API to handle user interactions.
   const handleSubmit = async () => {
     setSubmitAttempted(true);
     const isValid = validateAll();
@@ -116,7 +119,7 @@ const ChineseDetailedQuiz = () => {
       <div className="sticky-progress-bar">
         <ProgressBar now={textProgress} variant="info" label={`${Math.round(textProgress)}%`} />
       </div>
-
+      {/*Detailed quiz questions */}
       <div className="question-box">
         <Form>
           {questions.map((label, index) => (
@@ -139,7 +142,7 @@ const ChineseDetailedQuiz = () => {
             </div>
           ))}
         </Form>
-
+        {/*Submit button --> only enabled when all questions are answered */}
         <Button
           id="Submit-Button"
           onClick={handleSubmit}

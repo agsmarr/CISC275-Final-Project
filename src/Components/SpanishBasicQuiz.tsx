@@ -29,6 +29,7 @@ const SpanishBasicQuiz = () => {
   const progress = (answeredCount / totalQuestions) * 100;
   const isAllAnswered = answeredCount === totalQuestions;
 
+  /* Setting Answers*/
   const updateAnswer1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
     setAnswer1((prev) =>
@@ -42,15 +43,19 @@ const SpanishBasicQuiz = () => {
   const updateAnswer6 = (e: React.ChangeEvent<HTMLInputElement>) => setAnswer6(e.target.value);
   const updateAnswer7 = (e: React.ChangeEvent<HTMLInputElement>) => setAnswer7(e.target.value);
 
+  /* Navigation back home */
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  /* Navigation to detailed quiz */
   const gotoDetailed = () => {
     window.location.hash = '/detailed-quiz';
   }
+  // Set up asynchronous communication with the GPT API to handle user interactions.
   const handleSubmit = async () => {
     if (!isAllAnswered) return;
   
+  //chatgpt integration part
     setLoading(true);
     window.alert('Generando informe de carrera...'); // "Generating career report..."
   
@@ -94,6 +99,7 @@ const SpanishBasicQuiz = () => {
         The quiz will show if loading is false & showReport is false */}
         {loading ? <SpanishLoadingScreen></SpanishLoadingScreen> : !showReport ?
       <div>
+        {/*Home page button */}
       <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
           Página de Inicio
@@ -103,6 +109,7 @@ const SpanishBasicQuiz = () => {
       <div className="sticky-progress-bar mt-4">
         <ProgressBar now={progress} variant="info" label={`${Math.round(progress)}%`} />
       </div>
+        {/*Basic Quiz Questions*/}
       <div className="question-box">
         <div className="question-boxes">
           <h2 className="question-headers">Pregunta 1</h2>
@@ -159,6 +166,7 @@ const SpanishBasicQuiz = () => {
           <Form.Check type="radio" label="Ayudar a la comunidad" value="Ayudar a la comunidad" onChange={updateAnswer7} checked={answer7 === "Ayudar a la comunidad"} />
           <Form.Check type="radio" label="Hacer lo que amas" value="Hacer lo que amas" onChange={updateAnswer7} checked={answer7 === "Hacer lo que amas"} />
         </div>
+          {/*Submit button --> only enabled when isAllAnswered is true */}
           <Button
             id="Submit-Button"
             onClick={handleSubmit}

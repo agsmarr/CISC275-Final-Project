@@ -9,12 +9,14 @@ function AboutUs() {
         window.location.hash = '/';
       };
     return (<div>
+        {/*Home Page Button*/}
     <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
           Home Page
         </Button>
     </header>
     <body>
+        {/*General About Us Message*/}
         <div id = "about-us-message">
             <h1 className = "about-header">About Us</h1>
             <p>Our team has developed an assessment tool that helps users to make career decisions! 
@@ -22,6 +24,7 @@ function AboutUs() {
                 We strive to provide a fun and user-friendly experience that utilizes AI-generated responses to guide users towards careers that best fit their lifestyle and interests.
                 Navigate back to the home page to check out our basic and detailed career assessments or meet the developers below!</p>
         </div>
+        {/*Developer Intros*/}
         <h1 className = "about-header">Meet the Developers!</h1>
         <div className = "intro-border">
             <div className = "intro-box">
