@@ -46,7 +46,7 @@ function App() {
   const goToAboutUsPage = () => {
     window.location.hash = '/about-us';
   }
-  
+  //respective page will show during navigation depending on url
   function renderPage() {
     switch (route) {
       case "#/basic-quiz":
@@ -120,6 +120,7 @@ function App() {
             </Form.Select>
         </Form.Group>
       </div>}
+      {/*Language dropdown only shows when on the home page*/}
       {route === "" &&
       <div className = "nav-bar">
         {language === 'spanish' ? <Button id = "about-us" onClick = {goToAboutUsPage}>Sobre Nosotras</Button> : language === 'chinese' ? <Button id = "about-us" onClick = {goToAboutUsPage}>关于我们</Button>: <Button id = "about-us" onClick = {goToAboutUsPage}>About Us</Button>}
