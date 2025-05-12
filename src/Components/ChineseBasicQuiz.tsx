@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './BasicQuizPage.css';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import { generateChineseCareerReport } from './chatgpt';
+import { ChineseLoadingScreen } from './ChineseLoadingScreen';
 
 const ChineseBasicQuiz = () => {
   const [answer1, setAnswer1] = useState<string[]>([]);
@@ -88,6 +89,11 @@ const ChineseBasicQuiz = () => {
 
   return (
     <div>
+      {/*If loading is true, loading screen will show
+        If report is generated, the report will show
+        The quiz will show if loading is false & showReport is false */}
+      {loading ? <ChineseLoadingScreen></ChineseLoadingScreen> : !showReport ? 
+      <div>
       <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
           主页
@@ -153,7 +159,6 @@ const ChineseBasicQuiz = () => {
           <Form.Check type="radio" label="协助社区" value="Assisting Community" onChange={updateAnswer7} checked={answer7 === "Assisting Community"} />
           <Form.Check type="radio" label="做你喜欢的事" value="Doing What You Love" onChange={updateAnswer7} checked={answer7 === "Doing What You Love"} />
         </div>
-
         <Button
           id="Submit-Button"
           onClick={handleSubmit}
@@ -163,25 +168,24 @@ const ChineseBasicQuiz = () => {
             cursor: isAllAnswered ? 'pointer' : 'not-allowed'
           }}
         >
-          {loading ? '正在生成报告...' : '获得结果！'}
+          获得结果！
         </Button>
-
-        {showReport && (
-          <div className="report-section" style={{
-            marginTop: '20px',
-            padding: '20px',
-            backgroundColor: '#f8f9fa',
-            borderRadius: '5px',
-            border: '1px solid #dee2e6'
-          }}>
-            <h2>职业规划报告</h2>
+        </div>
+        </div> :
+        (
+          <div className = "report-border">
+            <div className="report-section">
+              <div className = "report-text"></div>
+              {/* Report below */}
+            <h2 id = "report-header">职业规划报告</h2>
             <div style={{
               whiteSpace: 'pre-wrap',
               textAlign: 'left',
               marginTop: '15px'
             }}>
               {report}
-            </div>
+          </div>
+          </div>
             <div className = "report-buttons">
             {/*Home Page Button*/}
             <Button style = {{fontSize: '25px', backgroundColor: '#7698dc', fontWeight: 'bold', color: '#f8f9fa', border: 'transparent', boxShadow: '8px 8px 10px rgb(174, 174, 174)'}}
@@ -198,7 +202,6 @@ const ChineseBasicQuiz = () => {
           </div>
         )}
       </div>
-    </div>
   );
 };
 
