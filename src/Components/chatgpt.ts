@@ -1,3 +1,11 @@
+/* This file is created for chatgpt integration for Career Quiz Helpi, for cisc275 of 
+* Computer and Information Science of University of Delware. It interacts with ChatGPT 
+* creates a report for both Basic and Career Assessments in Enligh, Spanish, and Chinese.
+* Utalizing Chatgpt as a reference for getting information about how to get API Key, how the
+* General format of chatgpt is and how files are required.
+ */
+
+
 // DetailedQuiz Page
 export interface DetailedQuizAnswers {
   answer1: string;

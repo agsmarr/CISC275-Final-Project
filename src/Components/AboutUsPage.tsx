@@ -30,8 +30,8 @@ function AboutUs() {
                     <p>Saieda Ali Zada</p>
                     <a href = "mailto:saieda@udel.edu">saieda@udel.edu</a>
                 </div>
-                <p className = "intros">I am Saieda, a junior in the CISC department at the University of Delaware.
-                    I enjoy playing volleyball, cooking, and painting.
+                <p className = "intros">I am Saieda, a junior in the CISC department at the University of Delaware with a concentration in Data Science.
+                    I am interest in high perormace computing (HPC), AI, and machine learning. I also enjoy playing volleyball.
                 </p>
             </div>
         </div>
