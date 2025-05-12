@@ -9,12 +9,14 @@ function SpanishAboutUs() {
         window.location.hash = '/';
       };
     return (<div>
+        {/*Home Page Button*/}
     <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
         Página de inicio
         </Button>
     </header>
     <body>
+        {/*General About Us Message*/}
         <div id = "about-us-message">
             <h1 className = "about-header">Sobre Nosotras</h1>
             <p>Nuestro equipo ha desarrollado una herramienta de evaluación que ayuda a los usuarios a tomar decisiones profesionales.
@@ -22,6 +24,7 @@ function SpanishAboutUs() {
                 Nos esforzamos por ofrecer una experiencia divertida e intuitiva que utiliza respuestas generadas por IA para guiar a los usuarios hacia las carreras que mejor se adapten a su estilo de vida e intereses.
                 ¡Vuelve a la página principal para consultar nuestras evaluaciones profesionales básicas y detalladas o conoce a los desarrolladores a continuación!</p>
         </div>
+        {/*Developer Intros*/}
         <h1 className = "about-header">¡Conoce a las desarrolladoras!</h1>
         <div className = "intro-border">
             <div className = "intro-box">

@@ -9,12 +9,14 @@ function ChineseAboutUs() {
         window.location.hash = '/';
       };
     return (<div>
+        {/*Home Page Button*/}
     <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
         主页
         </Button>
     </header>
     <body>
+        {/*General About Us Message*/}
         <div id = "about-us-message">
             <h1 className = "about-header">关于我们</h1>
             <p>我们的团队开发了一种评估工具，可以帮助用户做出职业决策。
@@ -22,6 +24,7 @@ function ChineseAboutUs() {
                 我们致力于提供有趣且直观的体验，使用人工智能生成的响应来引导用户找到最适合他们的生活方式和兴趣的职业。
                 返回主页查看我们的基本和详细的专业评论，或与下面的开发人员见面！</p>
         </div>
+        {/*Developer Intros*/}
         <h1 className = "about-header">认识开发商!</h1>
         <div className = "intro-border">
             <div className = "intro-box">

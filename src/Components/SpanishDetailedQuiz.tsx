@@ -40,7 +40,8 @@ const SpanishDetailedQuiz = () => {
     setErrors(newErrors);
     return newErrors.every(err => err === '');
   };
-
+  /*Chat GPT integration */
+  // Set up asynchronous communication with the GPT API to handle user interactions.
   const handleSubmit = async () => {
     setSubmitAttempted(true);
     const isValid = validateAll();
@@ -70,10 +71,11 @@ const SpanishDetailedQuiz = () => {
       setLoading(false);
     }
   };
-
+  /*Navigate to home page*/
   const goBackHome = () => {
     window.location.hash = '/';
   };
+  /*Navigate to basic quiz page*/
   const gotoBasic = () => {
     window.location.hash = '/basic-quiz';
   }
@@ -109,6 +111,7 @@ const SpanishDetailedQuiz = () => {
       <div className="sticky-progress-bar">
         <ProgressBar now={textProgress} variant="info" label={`${Math.round(textProgress)}%`} />
       </div>
+      {/*Detailed quiz questions */}
       <div className="question-box">
         <Form>
           {questions.map((label, i) => (
@@ -129,6 +132,7 @@ const SpanishDetailedQuiz = () => {
             </div>
           ))}
         </Form>
+        {/*Submit button --> only enabled when all questions are answered */}
         <Button
           id="Submit-Button"
           onClick={handleSubmit}

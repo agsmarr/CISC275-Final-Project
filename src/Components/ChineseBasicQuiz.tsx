@@ -29,6 +29,7 @@ const ChineseBasicQuiz = () => {
   const progress = (answeredCount / totalQuestions) * 100;
   const isAllAnswered = answeredCount === totalQuestions;
 
+  /* Setting Answers*/
   const updateAnswer1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
     setAnswer1((prev) => (checked ? [...prev, value] : prev.filter((item) => item !== value)));
@@ -40,10 +41,12 @@ const ChineseBasicQuiz = () => {
   const updateAnswer6 = (e: React.ChangeEvent<HTMLInputElement>) => setAnswer6(e.target.value);
   const updateAnswer7 = (e: React.ChangeEvent<HTMLInputElement>) => setAnswer7(e.target.value);
 
+  /* Navigation back home */
   const goBackHome = () => {
     window.location.hash = '/';
   };
-
+  //chatgpt integration part
+  // Set up asynchronous communication with the GPT API to handle user interactions.
   const handleSubmit = async () => {
     if (!isAllAnswered) return;
   
@@ -82,7 +85,7 @@ const ChineseBasicQuiz = () => {
       setLoading(false);
     }
   };
-  /* Navigation back home */
+  /* Navigation to detailed quiz */
   const gotoDetailed = () => {
     window.location.hash = '/detailed-quiz';
   }
@@ -94,6 +97,7 @@ const ChineseBasicQuiz = () => {
         The quiz will show if loading is false & showReport is false */}
       {loading ? <ChineseLoadingScreen></ChineseLoadingScreen> : !showReport ? 
       <div>
+          {/*Home page button */}
       <header>
         <Button variant="secondary" id="home-button" onClick={goBackHome}>
           主页
@@ -103,6 +107,7 @@ const ChineseBasicQuiz = () => {
       <div className="sticky-progress-bar mt-4">
         <ProgressBar now={progress} variant="info" label={`${Math.round(progress)}%`} />
       </div>
+        {/*Basic Quiz Questions*/}
       <div className="question-box">
         <div className="question-boxes">
           <h2 className="question-headers">问题1</h2>
@@ -159,6 +164,7 @@ const ChineseBasicQuiz = () => {
           <Form.Check type="radio" label="协助社区" value="Assisting Community" onChange={updateAnswer7} checked={answer7 === "Assisting Community"} />
           <Form.Check type="radio" label="做你喜欢的事" value="Doing What You Love" onChange={updateAnswer7} checked={answer7 === "Doing What You Love"} />
         </div>
+          {/*Submit button --> only enabled when isAllAnswered is true */}
         <Button
           id="Submit-Button"
           onClick={handleSubmit}
