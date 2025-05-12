@@ -1,3 +1,5 @@
+/* To create the qustions, used chatpgt as a source.*/
+
 import React, {useState} from 'react';
 import './BasicQuizPage.css';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
