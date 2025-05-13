@@ -27,13 +27,13 @@ All files                  |    6.02 |     5.31 |    4.41 |    6.26 |
   reportWebVitals.ts       |       0 |        0 |       0 |       0 | 3-10                                  
  src/Components            |    2.83 |        0 |     0.8 |    3.05 |                                       
   AboutUsPage.tsx          |       0 |      100 |       0 |       0 | 8-11                                  
-  BasicQuizPage.tsx        |    1.85 |        0 |       0 |    1.92 | 10-217                                
+  BasicQuizPage.tsx        |    1.85 |        0 |       0 |    1.92 | 10-220                                
   ChineseAboutUsPage.tsx   |       0 |      100 |       0 |       0 | 8-11                                  
   ChineseBasicQuiz.tsx     |    1.66 |        0 |       0 |    1.96 | 8-204                                 
   ChineseDetailedQuiz.tsx  |    1.47 |        0 |       0 |    1.56 | 8-184                                 
   ChineseHomeButtons.tsx   |       0 |      100 |       0 |       0 | 4-11                                  
   ChineseLoadingScreen.tsx |       0 |      100 |       0 |       0 | 6                                     
-  DetailedQuizPage.tsx     |    1.53 |        0 |       0 |    1.66 | 8-183                                 
+  DetailedQuizPage.tsx     |    1.53 |        0 |       0 |    1.66 | 8-187                                 
   HomeButtons.tsx          |      60 |      100 |   33.33 |      60 | 5,9                                   
   LoadingScreen.tsx        |       0 |      100 |       0 |       0 | 6                                     
   SpanishAboutUsPage.tsx   |       0 |      100 |       0 |       0 | 8-11                                  
@@ -46,5 +46,5 @@ All files                  |    6.02 |     5.31 |    4.41 |    6.26 |
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        4.091 s
+Time:        4.019 s
 Ran all test suites.
