@@ -5,7 +5,7 @@ import './BasicQuizPage.css';
 import { Button, Form, ProgressBar } from 'react-bootstrap';
 import { generateCareerReport } from './chatgpt';
 import {LoadingScreen} from './LoadingScreen';
-
+//Store the answer
 const BasicQuizPage = () => {
   const[answer1, setAnswer1] = useState<string[]>([]);
   const[answer2, setAnswer2] = useState<string>("");
@@ -15,6 +15,7 @@ const BasicQuizPage = () => {
   const[answer6, setAnswer6] = useState<string>("");
   const[answer7, setAnswer7] = useState<string>("");
 
+//Calculate how much question is answered for the progress bar
   const totalQuestions = 7;
   const answeredCount =
     (answer1.length > 0 ? 1 : 0) + 
@@ -121,6 +122,8 @@ const BasicQuizPage = () => {
             </Button>
         </header>
         <h1 id="basic-header">Basic Questions Quiz</h1>
+        {/*chatgpt integration part*/}
+        {/*Progress bar*/}
         <div className="sticky-progress-bar mt-4">
           <ProgressBar now={progress} variant="info" label={`${Math.round(progress)}%`} />
         </div>
