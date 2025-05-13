@@ -3,7 +3,7 @@ import { Button, Form, ProgressBar } from 'react-bootstrap';
 import './DetailedQuizPage.css';
 import { generateDetailedCareerReport, validateAnswer } from './chatgpt';
 import {LoadingScreen} from './LoadingScreen';
-
+//Store the answer
 const DetailedQuizPage = () => {
   const [answers, setAnswers] = useState({
     answer1: '',
@@ -15,13 +15,15 @@ const DetailedQuizPage = () => {
     answer7: '',
     answer8: '',
   });
-
+/*Chat GPT integration */
+// Set up asynchronous communication with the GPT API to handle user interactions.
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [report, setReport] = useState('');
   const [showReport, setShowReport] = useState(false);
   const [submitAttempted, setSubmitAttempted] = useState(false);
-
+//The function handles changes to input fields in a React form and update the answers state.If the field is valid, it clears the error for that field.
+//If invalid, it sets the specific error message.
   const handleChange = (fieldName: keyof typeof answers, value: string) => {
     setAnswers(prev => ({ ...prev, [fieldName]: value }));
     if (submitAttempted) {
@@ -29,12 +31,12 @@ const DetailedQuizPage = () => {
       setErrors(prev => ({ ...prev, [fieldName]: validation.isValid ? '' : validation.message }));
     }
   };
-
+//It will check the answer when user leave bar.
   const handleBlur = (fieldName: keyof typeof answers) => {
     const validation = validateAnswer(answers[fieldName], fieldName);
     setErrors(prev => ({ ...prev, [fieldName]: validation.isValid ? '' : validation.message }));
   };
-
+//To check all input fields at once, collect any validation errors, update the error state, and return whether the form is valid.
   const validateAll = () => {
     const newErrors: Record<string, string> = {};
     let isValid = true;
@@ -51,6 +53,7 @@ const DetailedQuizPage = () => {
     return isValid;
   };
 
+//Calculate the how much question is answered for the progress bar.
   const answeredCount = Object.values(answers).filter(a => a.trim() !== '').length;
   const progress = (answeredCount / 8) * 100;
   const isAllAnswered = answeredCount === 8;
@@ -110,6 +113,7 @@ const DetailedQuizPage = () => {
         </Button>
       </header>
       <h1 id="detailed-header">Detailed Questions Quiz</h1>
+      {/*Progress bar*/}
       <div className="sticky-progress-bar">
         <ProgressBar now={progress} variant="info" label={`${Math.round(progress)}%`} />
       </div>
